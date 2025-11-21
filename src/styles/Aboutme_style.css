@@ -1,0 +1,298 @@
+:root {
+  --bg-color: #ffffff;
+  --text-main: #000000;
+  --text-sub: #2b2b2b;
+  --text-gray: #878787;
+  --font-pretendard: "Pretendard", Helvetica, sans-serif;
+  --font-pretendard-bold: "Pretendard-Bold", Helvetica, sans-serif;
+  --font-pretendard-semibold: "Pretendard-SemiBold", Helvetica, sans-serif;
+}
+
+/* 기본 박스 사이징 설정 */
+.about-me, .about-me * {
+  box-sizing: border-box;
+}
+
+.about-me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1256px;
+  min-height: auto;
+  background: #ffffff;
+  border-radius: 0;
+  padding: 97px 58px 0;
+  margin: 0 auto;
+
+  /* AboutMe 외부 */
+
+/* 오토레이아웃 */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 97px 58px 0px;
+
+/* 내부 오토레이아웃 */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+}
+
+@media (max-width: 767px) {
+  .about-me {
+    padding: 40px 20px;
+    min-height: auto;
+  }
+}
+
+/* 메인 컨텐츠 래퍼 */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  gap: 40px;
+  width: 100%;
+  max-width: 1140px;
+  min-height: auto;
+  margin: 0 auto;
+  border-radius: 0;
+  margin-bottom: 90px;
+}
+
+@media (max-width: 767px) {
+  .about-content {
+    padding: 0 16px;
+    gap: 24px;
+    margin-bottom: 60px;
+    min-height: auto;
+  }
+}
+
+/* ------------------------
+   Header & Typography
+------------------------ */
+.about-header {
+  width: 100%;
+  max-width: 1092px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.page-title {
+  width: auto;
+  min-height: 34px;
+  font-family: var(--font-pretendard);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 34px;
+  letter-spacing: 0.0703125px;
+  color: #878787;
+}
+
+.intro-text {
+  width: 100%;
+  max-width: 653px;
+  color: #111827;
+  font-family: var(--font-pretendard-bold);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.449219px;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .intro-text {
+    font-size: 24px;
+    line-height: 1.4;
+  }
+}
+
+.section-title {
+  color: #111827;
+  font-family: var(--font-pretendard-bold);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 34px;
+  letter-spacing: 0.0703125px;
+  margin: 0;
+}
+
+.body-text {
+  color: #111827;
+  font-family: var(--font-pretendard);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: -0.449219px;
+  margin: 0;
+}
+
+/* ------------------------
+   Grid Layout
+------------------------ */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  width: 100%;
+  max-width: 1092px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+  width: 100%;
+}
+
+.column-left,
+.column-right {
+  width: 100%;
+}
+
+/* ------------------------
+   Section Specifics
+------------------------ */
+.info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.work-style-desc {
+  /* 특정 너비 제한이 원본에 있어 미디어 쿼리에서 처리 */
+}
+
+/* Skills Section */
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.skill-category {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.skill-category-title {
+  color: #2c2c2c;
+  font-family: var(--font-pretendard-semibold);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.449219px;
+  margin: 0 0 10px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.skill-tags .body-text {
+  white-space: nowrap;
+}
+
+/* ------------------------
+   Responsive (Tablet: 768px+)
+------------------------ */
+@media (min-width: 768px) {
+  .about-me {
+    padding: 60px 40px;
+  }
+  
+  .about-content {
+    gap: 35px;
+    padding: 0 16px;
+  }
+
+  .page-title, 
+  .section-title {
+    font-size: 22px;
+    line-height: 33.6px;
+  }
+
+  .intro-text {
+    font-size: 30px;
+  }
+
+  .body-text {
+    font-size: 18px;
+    line-height: 28px; /* 데스크탑/태블릿 공통 라인하이트 */
+  }
+
+  .skill-category-title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+/* ------------------------
+   Responsive (Desktop: 1024px+)
+------------------------ */
+@media (min-width: 1024px) {
+  .about-me {
+    padding: 97px 58px 90px;
+  }
+
+  .about-content {
+    gap: 40px;
+    padding: 0 24px;
+    align-items: center; /* 원본의 중앙 정렬 속성 */
+  }
+
+  .page-title {
+    font-size: 24px;
+  }
+
+  .intro-text {
+    font-size: 36px;
+    line-height: 28px;
+    width: min(653px, 100%);
+  }
+
+  /* 2단 그리드 전환 */
+  .content-grid {
+    grid-template-columns: 546px 536px;
+    column-gap: 20px;
+    row-gap: 0;
+    justify-content: space-between;
+  }
+
+  .column-left,
+  .column-right {
+    width: 100%;
+  }
+
+  .work-style-desc .body-text {
+    width: 444px; /* 원본의 width 제한 유지 */
+  }
+}
