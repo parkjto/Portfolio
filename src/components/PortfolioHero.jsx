@@ -3,7 +3,12 @@ import '../styles/PortfolioHero.css'
 
 const heroContent = {
   badge: 'Portfolio',
-  title: '안녕하세요 디자인과 개발을 하는 박준입니다.',
+  title: (
+    <>
+      디자인과 구현의 경계를 허무는 프로덕트 디자이너<br />
+      박준엽
+    </>
+  ),
 }
 
 export const PortfolioHero = () => {

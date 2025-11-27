@@ -23,7 +23,7 @@ export const AboutMe = () => {
           <div className="column column-left">
             
             <div className="info-block">
-              <h3 className="section-title">Careers</h3>
+              <h3 className="Aboutme-section-title">Careers</h3>
               <div className="block-content">
                 <p className="body-text">
                   - 2019 ~ 2021 농협경제지주 주식회사 (주임 회계 매입매출 월,연 마감)
@@ -32,12 +32,12 @@ export const AboutMe = () => {
             </div>
 
             <div className="info-block">
-              <h3 className="section-title">Major</h3>
+              <h3 className="Aboutme-section-title">Major</h3>
               <p className="body-text">컴퓨터정보공학과</p>
             </div>
 
             <div className="info-block">
-              <h3 className="section-title">Extracurricular Activities</h3>
+              <h3 className="Aboutme-section-title">Extracurricular Activities</h3>
               <div className="activity-list">
                 <p className="body-text">- 2024.09 ~ 2025.01 9oormthonUNIV 3기</p>
                 <p className="body-text">- 2025.06.29 ~ 2025.07.07 말레이시아 단기 연수</p>
@@ -47,7 +47,7 @@ export const AboutMe = () => {
             </div>
 
             <div className="info-block work-style-desc">
-              <h3 className="section-title">Work Styles</h3>
+              <h3 className="Aboutme-section-title">Work Styles</h3>
               <p className="body-text">
                 다른 사람의 능력치를 올려주는 동료가 되고 싶습니다. 공유를 통해 함께
                 성장하며, 공동의 문제 해결에 기여하는 것을 즐깁니다.
@@ -60,7 +60,7 @@ export const AboutMe = () => {
           <div className="column column-right">
             
             <div className="info-block">
-              <h3 className="section-title">Skill Tool</h3>
+              <h3 className="Aboutme-section-title">Skill Tool</h3>
               
               <div className="skills-container">
                 {/* Design Skills */}
@@ -96,7 +96,7 @@ export const AboutMe = () => {
             </div>
 
             <div className="info-block">
-              <h3 className="section-title">Certifications</h3>
+              <h3 className="Aboutme-section-title">Certifications</h3>
               <p className="body-text">정보처리산업기사 필기 합격</p>
             </div>
 

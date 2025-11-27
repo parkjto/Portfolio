@@ -1,0 +1,205 @@
+/* ============================================================================
+   Closing 섹션
+   ============================================================================ */
+
+.closing {
+  width: 100%;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(160px, 20vh, 313px) 82px clamp(160px, 20vh, 313px) 120px;
+}
+
+.closing-container {
+  width: 100%;
+  max-width: 1324px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* ============================================================================
+   Heading
+   ============================================================================ */
+
+.closing-heading {
+  width: 100%;
+  max-width: 1276px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closing-heading h2 {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33.6px;
+  text-align: center;
+  letter-spacing: 0.0703125px;
+  color: #111827;
+  margin: 0;
+}
+
+/* ============================================================================
+   Text Content
+   ============================================================================ */
+
+.closing-text {
+  width: 100%;
+  max-width: 1276px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.closing-text p {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28.8px;
+  text-align: center;
+  letter-spacing: -0.439453125px;
+  color: #374151;
+  margin: 0;
+}
+
+.closing-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================================================
+   URL Links
+   ============================================================================ */
+
+.closing-url {
+  width: 100%;
+  max-width: 1276px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.url-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 20px;
+}
+
+.url-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.url-icon img {
+  width: 20px;
+  height: 20px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.url-text {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: left;
+  letter-spacing: 0;
+  color: #4285f4;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.url-text:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* ============================================================================
+   Copyright
+   ============================================================================ */
+
+.closing-copyright {
+  width: 100%;
+  max-width: 1276px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.closing-copyright p {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: -0.150390625px;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* ============================================================================
+   반응형 디자인
+   ============================================================================ */
+
+@media (max-width: 1200px) {
+  .closing {
+    padding: clamp(140px, 18vh, 313px) clamp(24px, 7vw, 82px) clamp(140px, 18vh, 313px) clamp(24px, 9vw, 120px);
+  }
+}
+
+@media (max-width: 768px) {
+  .closing {
+    padding: 60px 20px;
+    min-height: auto;
+  }
+
+  .closing-container {
+    max-width: 100%;
+  }
+
+  .closing-heading,
+  .closing-text,
+  .closing-url,
+  .closing-copyright {
+    max-width: 100%;
+  }
+
+  .closing-heading h2 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .closing-text p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .closing-url {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+

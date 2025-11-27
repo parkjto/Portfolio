@@ -1,0 +1,160 @@
+.project-index-container {
+  width: 100%;
+  min-height: 100vh; /* 화면 높이 확보 */
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* 컨텐츠가 길어지면 스크롤되도록 */
+  padding: clamp(160px, 20vh, 313px) 82px clamp(160px, 20vh, 313px) 120px;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 1565px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.section-heading {
+  font-size: 32px; /* 헤딩 크기 약간 키움 */
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: space-between;
+}
+
+/* Card Styling */
+.project-card {
+  flex: 1;
+  min-width: 320px; /* 너무 작아지지 않도록 */
+  max-width: 32%; /* 3열 배치 기준 */
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: #d1d5db;
+}
+
+.card-header {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.card-number {
+  font-size: 48px;
+  font-weight: 800;
+  color: #4285f4;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.01em;
+  margin: 0;
+  white-space: nowrap; /* 줄바꿈 방지 */
+  overflow: invisible; /* 내용이 넘쳐도 보이게 */
+}
+
+/* 화면 크기에 따라 폰트 크기 동적 조절 */
+@container (max-width: 400px) {
+  .project-title {
+    font-size: clamp(20px, 8cqi, 30px);
+  }
+}
+
+.badges-list {
+  display: flex;
+  flex-direction: row; /* 가로 정렬 명시 */
+  flex-wrap: nowrap; /* 줄바꿈 방지 */
+  gap: 8px;
+  overflow-x: auto; /* 넘칠 경우 스크롤 */
+}
+
+.badge {
+  background-color: #eff6ff;
+  color: #3b82f6;
+  font-size: 11px; 
+  font-weight: 600;
+  padding: 6px 12px; 
+  border-radius: 100px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Image Placeholder */
+.image-placeholder {
+  width: 100%;
+  height: 0;
+  padding-bottom: 120%; /* 이미지 비율 */
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .project-index-container {
+    padding: clamp(140px, 18vh, 313px) clamp(24px, 7vw, 82px) clamp(140px, 18vh, 313px) clamp(24px, 9vw, 120px);
+  }
+}
+
+@media (max-width: 1280px) {
+  .project-card {
+    min-width: 45%; /* 태블릿/노트북: 2열 배치 */
+    max-width: 48%;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-index-container {
+    padding: 60px 16px;
+  }
+  
+  .section-heading {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .project-card {
+    width: 100%;
+    max-width: 100%; /* 모바일: 1열 꽉 채우기 */
+    min-width: auto;
+  }
+}
