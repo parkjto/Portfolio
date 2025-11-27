@@ -40,7 +40,7 @@ const MyBizOverview = () => {
                   <span key={index} className="overview-badge">{badge}</span>
                 ))}
               </div>
-              <h1 className="project-title">MyBiz (마이비즈)</h1>
+              <h1 className="project-overview-title">MyBiz (마이비즈)</h1>
               <div className="intro-group">
                 <p className="project-subtitle">소상공인을 위한 AI 경영 도우미</p>
                 <div className="award-badge">

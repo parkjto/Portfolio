@@ -6,6 +6,7 @@ import { AboutMe } from './components/AboutMe.jsx'
 import ProjectIndex from './components/Projectindex.jsx'
 import MyBizOverview from './components/MyBizOverview.jsx'
 import MyBizProblem from './components/MyBizProblem.jsx'
+import MyBizSolution from './components/MyBizSolution.jsx'
 // import { AboutMeWrapper } from './components/AboutMeWrapper.jsx'
 // import { ContainerWrapper } from './components/ContainerWrapper.jsx'
 // import { Projectindex } from './components/Projectindex.jsx'
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')).render(
     <ProjectIndex />
     <MyBizOverview />
     <MyBizProblem />
+    <MyBizSolution />
     {/* <AboutMeWrapper />
     <ContainerWrapper />
     
