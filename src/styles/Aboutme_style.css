@@ -119,6 +119,7 @@ flex-grow: 0;
   line-height: 28px;
   letter-spacing: -0.449219px;
   margin: 0;
+  white-space: nowrap;
 }
 
 @media (max-width: 767px) {
