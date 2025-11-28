@@ -130,6 +130,19 @@
   padding: 0 16px;
   height: 36px;
   width: fit-content;
+  gap: 8px; /* 아이콘과 텍스트 사이 간격 추가 */
+}
+
+.award-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.award-icon img {
+  /* width: 16px; 
+  height: 16px; */
+  display: block;
 }
 
 .award-text {

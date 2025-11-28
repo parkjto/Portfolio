@@ -5,7 +5,7 @@
   width: 100%;
   max-width: 1680px; /* Based on frame width */
   margin: 0 auto;
-  font-family: "Pretendard", "Inter", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
   color: #111111;
 }
 

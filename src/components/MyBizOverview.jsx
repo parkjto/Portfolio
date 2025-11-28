@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/MyBizOverview.css';
 import MyBizSidebar from './MyBizSidebar';
-
+import trophyIcon from '../assets/icons/trophy-icon.svg'
 const MyBizOverview = () => {
   const badges = ['Mobile App', 'AI Assistant', 'Web Design'];
 
@@ -25,6 +25,9 @@ const MyBizOverview = () => {
               <div className="intro-group">
                 <p className="project-subtitle">소상공인을 위한 AI 경영 도우미</p>
                 <div className="award-badge">
+                  <div className="award-icon">
+                    <img src={trophyIcon} alt="Trophy icon" />
+                  </div>
                   <span className="award-text">제2회 교내 해커톤 대회 - 아이디어상 수상</span>
                 </div>
               </div>

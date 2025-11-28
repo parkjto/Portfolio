@@ -30,7 +30,7 @@
 
 .section-label {
   display: block;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Pretendard', sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: #3b81f6;
@@ -42,7 +42,7 @@
 }
 
 .hero-title-line {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Pretendard', sans-serif;
   font-size: 40px;
   font-weight: 700;
   line-height: 1.2;
@@ -55,7 +55,7 @@
 }
 
 .hero-description {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Pretendard', sans-serif;
   font-size: 20px;
   font-weight: 400;
   color: #6b726b;
@@ -90,7 +90,7 @@
 }
 
 .feature-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Pretendard', sans-serif;
   font-size: 14px;
   font-weight: 800; /* Extra Bold */
   color: #3b82f6;
@@ -98,7 +98,7 @@
 }
 
 .feature-title {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Pretendard', sans-serif;
   font-size: 30px;
   font-weight: 700;
   color: #111827;
@@ -107,7 +107,7 @@
 }
 
 .feature-subtitle {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Pretendard', sans-serif;
   font-size: 18px;
   font-weight: 700;
   color: #111827;
@@ -116,7 +116,7 @@
 }
 
 .feature-desc {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Pretendard', sans-serif;
   font-size: 16px;
   font-weight: 400;
   color: #6b726b;
@@ -132,16 +132,25 @@
 
 .phone-mockup {
   position: sticky;
-  top: 40px; /* Sticky top offset */
+  top: 40px;
   width: 320px;
   height: 640px;
+  /* iOS-like rounded corners */
   border-radius: 48px;
+  /* Smoothing trick: slightly larger radius for outer container */
   background-color: #ffffff;
-  border: 8px solid #1f2937; /* Mockup bezel */
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  border: 8px solid #1f2937;
+  /* Deep shadow for depth */
+  box-shadow: 
+    0 0 0 2px #374151, /* Outer bezel edge */
+    0 20px 40px -10px rgba(0,0,0,0.3);
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  z-index: 10;
+  
+  /* Optional: Smooth corners using masking (Advanced) */
+  /* -webkit-mask-image: radial-gradient(white, black); */
 }
 
 .phone-status-bar {
