@@ -1,87 +1,102 @@
 import React from 'react';
 import '../styles/MyBizSolution.css';
+import MyBizSidebar from './MyBizSidebar';
 
-/**
- * MyBizSolution Component
- * 
- * Displays the "Solution" section of the case study.
- * Includes a sidebar for navigation context and a main content area.
- * 
- * Note: Figma connection was unavailable, so this component uses the structural template
- * from MyBizProblem with placeholders for Solution-specific content.
- */
 const MyBizSolution = () => {
   return (
-    <div className="mybiz-solution-wrapper">
-      {/* Sidebar Navigation */}
-      <aside className="mybiz-sidebar">
-        <nav className="mybiz-nav-list">
-          <div className="mybiz-nav-item">Overview</div>
-          <div className="mybiz-nav-item">Problem</div>
-          <div className="mybiz-nav-item active">Solution</div>
-          <div className="mybiz-nav-item">Result</div>
-          <div className="mybiz-nav-item">Learning</div>
-        </nav>
-      </aside>
+    <section id="mybiz-solution" className="mybiz-solution-wrapper">
+      {/* Shared Sidebar Navigation */}
+      <MyBizSidebar activeSection="Solution" />
 
       {/* Main Content */}
       <main className="mybiz-main-content">
-        
-        {/* Hero Section Placeholder */}
-        <section className="solution-hero">
-          <span className="section-label">Solution Strategy</span>
-          <h1 className="hero-heading">
-            사용자 중심의<br />
-            직관적인 해결책 제안
-            {/* Placeholder Text */}
-          </h1>
-        </section>
-
-        {/* Core Solution Section Placeholder */}
-        <section className="solution-section">
-          <h2 className="solution-section-title">Key Features</h2>
-          <div className="solution-grid">
-            {/* Feature 1 */}
-            <div className="solution-card">
-              <h3 className="solution-card-title">직관적인 대시보드</h3>
-              <p className="solution-card-body">
-                복잡한 데이터를 한눈에 파악할 수 있도록 시각화된 차트와 요약 정보를 제공합니다.
-                중요한 매출 지표를 최상단에 배치하여 접근성을 높였습니다.
-              </p>
+        <div className="content-container">
+          
+          {/* Hero Section */}
+          <section className="solution-hero">
+            <span className="section-label">Solution Strategy</span>
+            <div className="hero-heading-group">
+              <h1 className="hero-title-line">누구나 쉽게 쓰는</h1>
+              <h1 className="hero-title-line highlight">대화형 AI 비서</h1>
             </div>
-
-            {/* Feature 2 */}
-            <div className="solution-card">
-              <h3 className="solution-card-title">맞춤형 인사이트</h3>
-              <p className="solution-card-body">
-                사용자의 업종과 매출 패턴을 분석하여 구체적인 행동 가이드를 제공합니다.
-                어려운 용어 대신 쉬운 언어로 풀어서 설명합니다.
-              </p>
+            <div className="hero-description">
+              <p>소상공인의 3가지 결핍(시간, 전문성, 비용)을 해결하기 위해,</p>
+              <p>가장 익숙한 '채팅' 인터페이스로 진입 장벽을 없앴습니다.</p>
             </div>
+          </section>
 
-             {/* Feature 3 */}
-             <div className="solution-card">
-              <h3 className="solution-card-title">간편한 마케팅 도구</h3>
-              <p className="solution-card-body">
-                클릭 몇 번으로 실행 가능한 마케팅 캠페인을 생성하고 관리할 수 있습니다.
-                예산 설정부터 성과 분석까지 자동화된 프로세스를 지원합니다.
-              </p>
-            </div>
+          {/* Content Grid */}
+          <div className="solution-content-grid">
             
-             {/* Feature 4 */}
-             <div className="solution-card">
-              <h3 className="solution-card-title">실시간 알림 서비스</h3>
-              <p className="solution-card-body">
-                매출 변동, 예약 현황 등 중요한 이벤트를 실시간으로 알림 받아 즉각 대응할 수 있습니다.
-              </p>
-            </div>
-          </div>
-        </section>
+            {/* Left Column: Features */}
+            <div className="features-column">
+              
+              {/* Feature 1 */}
+              <div className="feature-block">
+                <span className="feature-label">CORE FEATURE 01</span>
+                <h2 className="feature-title">💬 자연어 질의응답</h2>
+                <h3 className="feature-subtitle">Why? 복잡한 UI 학습 비용 제거</h3>
+                <p className="feature-desc">
+                  기존 사장님 앱들은 메뉴가 너무 많아 원하는 기능을 찾기 어렵습니다.<br/>
+                  하지만 카톡은 누구나 쓸 줄 알죠. "지난달 매출 어때?" 한 마디면 충분하게 만들었습니다.
+                </p>
+              </div>
 
+              {/* Feature 2 */}
+              <div className="feature-block">
+                <span className="feature-label">CORE FEATURE 02</span>
+                <h2 className="feature-title">🤖 맞춤형 정책 추천</h2>
+                <h3 className="feature-subtitle">Why? 정보 탐색 시간 '0'으로 단축</h3>
+                <p className="feature-desc">
+                  지원금은 많지만, 내 가게에 맞는 걸 찾으려면 몇 시간씩 공고를 뒤져야 합니다.<br/>
+                  가게 정보(지역/업종)만 있으면 AI가 '받을 수 있는 돈'만 콕 집어 알려줍니다.
+                </p>
+              </div>
+
+              {/* Feature 3 */}
+              <div className="feature-block">
+                <span className="feature-label">CORE FEATURE 03</span>
+                <h2 className="feature-title">✨ AI 광고 자동 생성</h2>
+                <h3 className="feature-subtitle">Why? 디자인 비용 & 기술 장벽 해결</h3>
+                <p className="feature-desc">
+                  디자이너 고용 비용 부담 없이, 사진 한 장으로 전문가급 홍보물을 만듭니다.<br/>
+                  AI가 적절한 카피와 레이아웃을 자동으로 제안합니다.
+                </p>
+              </div>
+
+              {/* Feature 4 */}
+              <div className="feature-block">
+                <span className="feature-label">CORE FEATURE 04</span>
+                <h2 className="feature-title">📉 직관적 데이터 시각화</h2>
+                <h3 className="feature-subtitle">Why? 데이터 문해력 격차 보완</h3>
+                <p className="feature-desc">
+                  복잡한 엑셀 표 대신, "파란색은 긍정, 빨간색은 부정" 직관적인 색상과 그래프로<br/>
+                  데이터를 해석할 줄 몰라도 3초 만에 가게 현황을 파악할 수 있습니다.
+                </p>
+              </div>
+
+            </div>
+
+            {/* Right Column: Phone Mockup */}
+            <div className="phone-column">
+              <div className="phone-mockup">
+                <div className="phone-status-bar">
+                  <span className="time">9:41</span>
+                  <span className="icons">Signal Wifi Battery</span>
+                </div>
+                <div className="phone-screen">
+                  {/* Content placeholder */}
+                  <div className="screen-placeholder"></div>
+                </div>
+                <div className="phone-bottom-nav"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </main>
-    </div>
+    </section>
   );
 };
 
 export default MyBizSolution;
-

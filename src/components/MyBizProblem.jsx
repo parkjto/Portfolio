@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/MyBizProblem.css';
+import MyBizSidebar from './MyBizSidebar';
 
 /**
  * MyBizProblem Component
@@ -12,20 +13,12 @@ import '../styles/MyBizProblem.css';
  */
 const MyBizProblem = () => {
   return (
-    <div className="mybiz-problem-wrapper">
-      {/* Sidebar Navigation */}
-      <aside className="mybiz-sidebar">
-        <nav className="mybiz-nav-list">
-          <div className="mybiz-nav-item">Overview</div>
-          <div className="mybiz-nav-item active">Problem</div>
-          <div className="mybiz-nav-item">Solution</div>
-          <div className="mybiz-nav-item">Result</div>
-          <div className="mybiz-nav-item">Learning</div>
-        </nav>
-      </aside>
+    <section id="mybiz-problem" className="mybiz-problem-wrapper">
+      {/* Shared Sidebar Navigation */}
+      <MyBizSidebar activeSection="Problem" />
 
       {/* Main Content */}
-      <main className="mybiz-main-content">
+      <div className="mybiz-main-content">
         
         {/* Hero Section */}
         <section className="problem-hero">
@@ -35,17 +28,6 @@ const MyBizProblem = () => {
             실질적 사용성 장벽
           </h1>
         </section>
-
-        {/* Quote Section */}
-        {/* <section className="quote-row">
-          <div className="quote-accent"></div>
-          <div className="quote-content">
-            <p className="quote-text">
-              "가게를 운영하시는 부모님이 기존 '사장님 앱'들의 복잡한 메뉴와 작은 글씨 때문에 
-              결국 '네가 좀 해줘라'라며 포기하시는 모습을 보고, 이 프로젝트를 시작했습니다."
-            </p>
-          </div>
-        </section> */}
 
         {/* Discovery Process Grid */}
         <section className="discovery-section">
@@ -146,10 +128,9 @@ const MyBizProblem = () => {
           </div>
         </section>
 
-      </main>
-    </div>
+      </div>
+    </section>
   );
 };
 
 export default MyBizProblem;
-

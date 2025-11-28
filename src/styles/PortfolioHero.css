@@ -41,7 +41,7 @@ main {
   overflow: hidden; /* 노이즈가 튀어나가지 않도록 */
 }
 
-/* 노이즈 효과 추가 (피그마 스타일 재현 - 웹 최적화) */
+/* 노이즈 효과 추가  */
 .hero::before {
   content: "";
   position: absolute;

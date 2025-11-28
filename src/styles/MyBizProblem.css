@@ -9,48 +9,7 @@
   color: #111111;
 }
 
-/* Sidebar Styles */
-.mybiz-sidebar {
-  width: 241px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  padding-top: 40px;
-  padding-left: 40px;
-  /* Removed border to match Overview */
-}
-
-.mybiz-nav-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.mybiz-nav-item {
-  display: flex;
-  align-items: center;
-  height: 42px;
-  text-decoration: none;
-  font-family: "Pretendard", sans-serif;
-  letter-spacing: 0.4px;
-  
-  /* Inactive state by default */
-  font-weight: 600;
-  font-size: 16px;
-  color: #9b9b9b;
-  transition: color 0.2s ease;
-  cursor: pointer;
-}
-
-.mybiz-nav-item:hover {
-  color: #111827;
-}
-
-.mybiz-nav-item.active {
-  font-weight: 600;
-  font-size: 20px;
-  color: #111827;
-}
+/* Sidebar Styles Removed - Using Shared Sidebar Component */
 
 /* Main Content Area */
 .mybiz-main-content {
@@ -234,21 +193,6 @@
     flex-direction: column;
   }
   
-  .mybiz-sidebar {
-    width: 100%;
-    flex-direction: row;
-    overflow-x: auto;
-    padding: 0;
-    padding-bottom: 10px;
-    border-right: none;
-    /* border-bottom removed to match Overview style */
-  }
-  
-  .mybiz-nav-list {
-    flex-direction: row;
-    gap: 24px;
-  }
-  
   .mybiz-main-content {
     padding: 40px 20px;
   }
@@ -258,7 +202,3 @@
     gap: 30px;
   }
 }
-
-
-
-

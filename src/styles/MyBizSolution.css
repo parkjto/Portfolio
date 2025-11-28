@@ -1,186 +1,174 @@
-/* Scoped styles for MyBizSolution component */
+/* Layout & Container */
 .mybiz-solution-wrapper {
   display: flex;
   background-color: #ffffff;
-  width: 100%;
-  max-width: 1680px; /* Based on frame width */
+  min-height: 100vh;
+  font-family: 'Pretendard', sans-serif;
+  color: #111827;
+  max-width: 1440px;
   margin: 0 auto;
-  font-family: "Pretendard", "Inter", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-  color: #111111;
+  position: relative;
 }
 
-/* Sidebar Styles */
-.mybiz-sidebar {
-  width: 241px;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  padding-top: 40px;
-  padding-left: 40px;
-  /* Removed border to match Overview */
-}
+/* Sidebar Styles Removed - Using Shared Sidebar Component */
 
-.mybiz-nav-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.mybiz-nav-item {
-  display: flex;
-  align-items: center;
-  height: 42px;
-  text-decoration: none;
-  font-family: "Pretendard", sans-serif;
-  letter-spacing: 0.4px;
-  
-  /* Inactive state by default */
-  font-weight: 600;
-  font-size: 16px;
-  color: #9b9b9b;
-  transition: color 0.2s ease;
-  cursor: pointer;
-}
-
-.mybiz-nav-item:hover {
-  color: #111827;
-}
-
-.mybiz-nav-item.active {
-  font-weight: 600;
-  font-size: 20px;
-  color: #111827;
-}
-
-/* Main Content Area */
+/* Main Content */
 .mybiz-main-content {
   flex-grow: 1;
-  padding: 80px 100px;
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
+  padding: 48px 60px;
+}
+
+.content-container {
+  max-width: 1080px;
+  margin: 0 auto;
 }
 
 /* Hero Section */
 .solution-hero {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  margin-bottom: 80px;
 }
 
 .section-label {
-  color: #4285f4;
+  display: block;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: #3b81f6;
+  margin-bottom: 12px;
 }
 
-.hero-heading {
+.hero-heading-group {
+  margin-bottom: 24px;
+}
+
+.hero-title-line {
+  font-family: 'Inter', sans-serif;
   font-size: 40px;
   font-weight: 700;
   line-height: 1.2;
+  margin: 0;
   color: #111111;
 }
 
-/* Quote Section (Optional for Solution, keeping styles just in case) */
-.quote-row {
-  display: flex;
-  height: auto;
-  min-height: 160px;
+.hero-title-line.highlight {
+  color: #3b81f6;
 }
 
-.quote-accent {
-  width: 4px;
-  background-color: #3b81f6;
+.hero-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #6b726b;
+  line-height: 1.4;
+}
+
+.hero-description p {
+  margin: 0;
+}
+
+/* Content Grid */
+.solution-content-grid {
+  display: flex;
+  gap: 60px; /* Space between columns */
+  position: relative;
+}
+
+/* Left Column - Features */
+.features-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 120px; /* Vertical space between features */
+  padding-bottom: 100px;
+}
+
+.feature-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 220px 0px;
+}
+
+.feature-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 800; /* Extra Bold */
+  color: #3b82f6;
+  margin-bottom: 4px;
+}
+
+.feature-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.feature-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  margin-top: 8px;
+}
+
+.feature-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #6b726b;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+/* Right Column - Phone Mockup */
+.phone-column {
+  width: 320px;
   flex-shrink: 0;
 }
 
-.quote-content {
-  background-color: #f9fafc;
-  padding: 40px;
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.quote-text {
-  font-size: 20px;
-  font-weight: 500;
-  color: #6b6b6b;
-  line-height: 1.4;
-  font-style: italic;
-}
-
-/* Section Titles */
-.solution-section-title {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: #111111;
-}
-
-/* Solution Grid / Layout Placeholder */
-.solution-section {
-  width: 100%;
-}
-
-.solution-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Default 2 columns for solution cards often used */
-  gap: 40px;
-}
-
-.solution-card {
+.phone-mockup {
+  position: sticky;
+  top: 40px; /* Sticky top offset */
+  width: 320px;
+  height: 640px;
+  border-radius: 48px;
+  background-color: #ffffff;
+  border: 8px solid #1f2937; /* Mockup bezel */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: #f8f9fa; /* Light background for cards */
-  padding: 30px;
-  border-radius: 8px; /* Slight radius */
 }
 
-.solution-card-title {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: #111111;
+.phone-status-bar {
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  background-color: #fff;
+  font-size: 12px;
+  font-weight: 600;
 }
 
-.solution-card-body {
-  font-size: 16px;
-  font-weight: 400;
-  color: #666666;
-  line-height: 1.6;
+.phone-screen {
+  flex-grow: 1;
+  background-color: #e5e5e5;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .mybiz-solution-wrapper {
-    flex-direction: column;
-  }
-  
-  .mybiz-sidebar {
-    width: 100%;
-    flex-direction: row;
-    overflow-x: auto;
-    padding: 0;
-    padding-bottom: 10px;
-    border-right: none;
-  }
-  
-  .mybiz-nav-list {
-    flex-direction: row;
-    gap: 24px;
-  }
-  
-  .mybiz-main-content {
-    padding: 40px 20px;
-  }
-  
-  .solution-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
+.screen-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #f3f4f6; /* Light grey placeholder */
 }
 
-
+.phone-bottom-nav {
+  height: 24px; /* Home indicator area */
+  background-color: #fff;
+}

@@ -1,34 +1,15 @@
 import React from 'react';
 import '../styles/MyBizOverview.css';
+import MyBizSidebar from './MyBizSidebar';
 
 const MyBizOverview = () => {
-  const navItems = [
-    { label: 'Overview', active: true },
-    { label: 'Problem', active: false },
-    { label: 'Solution', active: false },
-    { label: 'Result', active: false },
-    { label: 'Learning', active: false },
-  ];
-
   const badges = ['Mobile App', 'AI Assistant', 'Web Design'];
 
   return (
-    <section className="mybiz-overview-container">
+    <section id="mybiz-overview" className="mybiz-overview-container">
       <div className="overview-wrapper">
-        {/* Sidebar Navigation */}
-        <aside className="sidebar">
-          <nav className="nav-block">
-            {navItems.map((item, index) => (
-              <a 
-                key={index} 
-                href={`#${item.label.toLowerCase()}`}
-                className={`nav-item ${item.active ? 'active' : 'inactive'}`}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        </aside>
+        {/* Shared Sidebar Navigation */}
+        <MyBizSidebar activeSection="Overview" />
 
         {/* Main Content */}
         <div className="main-content-area">
@@ -120,4 +101,3 @@ const MyBizOverview = () => {
 };
 
 export default MyBizOverview;
-
