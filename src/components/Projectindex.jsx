@@ -13,14 +13,14 @@ const ProjectIndex = () => {
     {
       id: 2,
       number: '02',
-      title: 'MyBiz (마이비즈)',
-      badges: ['Mobile App', 'AI Assistant', 'Web Design'],
+      title: '나루나루',
+      badges: ['Mobile App', 'AI', 'Map'],
     },
     {
       id: 3,
       number: '03',
-      title: 'MyBiz (마이비즈)',
-      badges: ['Mobile App', 'AI Assistant', 'Web Design'],
+      title: 'IgE',
+      badges: ['Web', 'AI Assistant', 'Web Design'],
     },
   ];
 

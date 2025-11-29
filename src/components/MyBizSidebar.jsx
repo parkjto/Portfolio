@@ -4,9 +4,9 @@ import '../styles/MyBizOverview.css'; // 공유 스타일 사용
 const MyBizSidebar = ({ activeSection }) => {
   const navItems = [
     { label: 'Overview', id: 'mybiz-overview' },
+    { label: 'Flow Chart', id: 'mybiz-flowchart' },
     { label: 'Problem', id: 'mybiz-problem' },
     { label: 'Solution', id: 'mybiz-solution' },
-    { label: 'Flow Chart', id: 'mybiz-flowchart' },
     { label: 'Result & Learning', id: 'mybiz-result' },
   ];
 

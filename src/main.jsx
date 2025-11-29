@@ -22,9 +22,9 @@ createRoot(document.getElementById('root')).render(
     <AboutMe />
     <ProjectIndex />
     <MyBizOverview />
+    <MyBizFlowChart />
     <MyBizProblem />
     <MyBizSolution />
-    <MyBizFlowChart />
     <MyBizResult />
    
     {/* <AboutMeWrapper />
