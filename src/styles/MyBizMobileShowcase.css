@@ -1,0 +1,590 @@
+.mobile-showcase-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+    sans-serif;
+}
+
+.mobile-showcase-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1680px;
+}
+
+.mobile-showcase-main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  flex: 1;
+  padding: 0 80px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  max-width: 916px;
+}
+
+.mobile-showcase-header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #3b82f6;
+}
+
+.header-title {
+  font-size: 32px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: #111827;
+  margin: 0;
+}
+
+.header-description {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #4b5563;
+  margin: 0;
+}
+
+.mobile-slider {
+  position: relative;
+  margin-top: 24px;
+  overflow: visible;
+  width: 100%;
+}
+
+.mobile-slider-viewport {
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.mobile-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+  box-sizing: border-box;
+  max-width: 650px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.mobile-card-inner {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.mobile-slide {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.45s ease,
+    opacity 0.45s ease,
+    filter 0.45s ease;
+  width: 100%;
+  max-width: 650px;
+}
+
+.mobile-slide-active {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  pointer-events: auto;
+  z-index: 3;
+  filter: none;
+}
+
+.mobile-slide-prev {
+  opacity: 0.4;
+  transform: translateX(-120%) scale(0.85);
+  z-index: 2;
+  filter: blur(1px);
+  pointer-events: none;
+}
+
+.mobile-slide-next {
+  opacity: 0.4;
+  transform: translateX(20%) scale(0.85);
+  z-index: 2;
+  filter: blur(1px);
+  pointer-events: none;
+}
+
+.mobile-slide-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mobile-slider-btn {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  border-radius: 0;
+  background-color: transparent;
+  border: none;
+  color: #d1d5db;
+  font-size: 50px;
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: none;
+  z-index: 10;
+  transition: all 0.2s ease;
+  padding-bottom: 0;
+}
+
+.mobile-slider-btn:hover {
+  background-color: #f9fafb;
+  color: #3b82f6;
+  transform: none;
+  box-shadow: none;
+}
+
+.mobile-slider-btn.prev {
+  left: -60px;
+  border-radius: 12px 0 0 12px;
+}
+
+.mobile-slider-btn.next {
+  right: -60px;
+  border-radius: 0 12px 12px 0;
+}
+
+.mobile-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.mobile-card-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.mobile-card-index {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2563eb;
+  letter-spacing: 0.08em;
+}
+
+.mobile-card-chip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.mobile-card-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mobile-card-title-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: #9ca3af;
+  text-transform: uppercase;
+}
+
+.mobile-card-subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.mobile-card-description {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #6b7280;
+  width: 300px;
+  max-width: 100%;
+}
+
+.mobile-card-phone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.phone-frame {
+  position: relative;
+  width: 220px;
+  aspect-ratio: 9 / 19.5;
+  border-radius: 32px;
+  padding: 10px;
+  box-sizing: border-box;
+  background: radial-gradient(circle at top left, #e5f0ff 0%, #ffffff 38%, #e5e7eb 100%);
+  box-shadow:
+    0 20px 40px rgba(15, 23, 42, 0.18),
+    inset 0 0 0 1px rgba(148, 163, 184, 0.4);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.phone-notch {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  z-index: 11;
+}
+
+.phone-screen-placeholder {
+  width: 100%;
+  border-radius: 24px;
+  background: repeating-linear-gradient(
+      -45deg,
+      #f3f4f6,
+      #f3f4f6 8px,
+      #e5e7eb 8px,
+      #e5e7eb 16px
+    );
+  border: 1px dashed #9ca3af;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  text-align: center;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.phone-bottom-nav {
+  margin-top: auto;
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.mobile-screen-image-wrapper {
+  position: relative;
+  width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-screen-image {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15);
+  display: block;
+}
+
+.mobile-screen-scrollable {
+  height: 450px;
+  max-height: 450px;
+}
+
+.mobile-screen-scroll-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15);
+  position: relative;
+}
+
+.mobile-screen-scroll-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.mobile-screen-scroll-container::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 2px;
+}
+
+.mobile-screen-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.5);
+  border-radius: 2px;
+}
+
+.mobile-screen-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.7);
+}
+
+.mobile-screen-scroll-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+}
+
+
+.placeholder-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #4b5563;
+}
+
+.placeholder-sub {
+  font-size: 11px;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.mobile-fullscreen-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: none;
+  background: #ffffff00;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  padding: 0;
+}
+
+.mobile-fullscreen-btn img {
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+}
+
+.mobile-fullscreen-btn:hover {
+  background-color: #f3f4f6;
+}
+
+@media (max-width: 1024px) {
+  .mobile-showcase-wrapper {
+    flex-direction: column;
+  }
+
+  .mobile-showcase-main {
+    padding: 40px 20px;
+    margin-top: 0;
+    margin-bottom: 40px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-showcase-container {
+    padding: 80px 16px;
+    overflow-x: hidden;
+  }
+
+  .header-title {
+    font-size: 24px;
+  }
+
+  .mobile-card {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .phone-frame {
+    width: 190px;
+  }
+
+  .mobile-card-inner {
+    flex-direction: column;
+  }
+
+  .mobile-slider {
+    overflow: visible;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0 40px;
+  }
+
+  .mobile-slider-viewport {
+    width: 100%;
+    min-height: 700px;
+    overflow: hidden;
+    padding: 20px 0;
+  }
+  
+  .mobile-slide {
+    top: 20px;
+    max-width: 100%;
+  }
+
+  .mobile-slide-prev {
+    transform: translateX(-110%) scale(0.8);
+  }
+
+  .mobile-slide-next {
+    transform: translateX(10%) scale(0.8);
+  }
+
+  .mobile-slider-btn {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    border-radius: 50%;
+    color: #ffffff;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    left: 10px;
+  }
+
+  .mobile-slider-btn:hover {
+    background-color: transparent;
+    transform: translateY(-50%);
+  }
+
+  .mobile-slider-btn.next {
+    right: 10px;
+    left: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-showcase-container {
+    padding: 60px 12px;
+  }
+
+  .mobile-card {
+    padding: 16px;
+  }
+
+  .phone-frame {
+    width: 170px;
+  }
+}
+
+/* Fullscreen Modal */
+.fullscreen-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.fullscreen-content {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullscreen-phone-frame {
+  width: 320px;
+  max-width: 90vw;
+}
+
+.fullscreen-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15);
+}
+
+.fullscreen-hint {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: rgba(229, 231, 235, 0.8);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 10001;
+  white-space: nowrap;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 모바일에서도 안내 메시지가 잘 보이도록 */
+@media (max-width: 768px) {
+  .fullscreen-hint {
+    top: 16px;
+    font-size: 10px;
+    padding: 0 16px;
+    white-space: normal;
+    text-align: center;
+    max-width: 90vw;
+  }
+  
+  .fullscreen-content {
+    width: 95%;
+    height: 95%;
+  }
+  
+  .fullscreen-phone-frame {
+    width: 280px;
+    max-width: 85vw;
+  }
+}
+
+

@@ -166,18 +166,34 @@
 
 .phone-screen {
   flex-grow: 1;
-  background-color: #e5e5e5;
+  background-color: #ffffff;
   position: relative;
-  overflow: hidden;
+  overflow-y: auto; /* 세로 스크롤 허용 */
+  scrollbar-width: none; /* Firefox 스크롤바 숨김 */
+  -ms-overflow-style: none; /* IE/Edge 스크롤바 숨김 */
 }
 
-.screen-placeholder {
+/* Chrome, Safari, Opera 스크롤바 숨김 */
+.phone-screen::-webkit-scrollbar {
+  display: none;
+}
+
+/* Screen Images Transition */
+.screen-image {
   width: 100%;
-  height: 100%;
-  background-color: #f3f4f6; /* Light grey placeholder */
+  height: auto; /* 이미지 원본 높이 유지 (길면 스크롤됨) */
+  display: none; /* 기본적으로 숨김 */
+  object-fit: contain;
 }
 
-.phone-bottom-nav {
-  height: 24px; /* Home indicator area */
-  background-color: #fff;
+.screen-image.active {
+  display: block; /* 활성 이미지만 표시 */
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+

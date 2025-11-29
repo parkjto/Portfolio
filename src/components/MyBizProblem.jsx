@@ -67,7 +67,7 @@ const MyBizProblem = () => {
 
         {/* User Pain Points Grid */}
         <section className="pain-section">
-          <h2 className="section-title">User Pain Points</h2>
+          <h2 className="problem-section-title">User Pain Points</h2>
           <div className="pain-grid">
             {/* Pain Card 1: Time */}
             <div className="pain-card">

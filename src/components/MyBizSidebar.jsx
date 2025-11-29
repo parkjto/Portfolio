@@ -6,8 +6,7 @@ const MyBizSidebar = ({ activeSection }) => {
     { label: 'Overview', id: 'mybiz-overview' },
     { label: 'Problem', id: 'mybiz-problem' },
     { label: 'Solution', id: 'mybiz-solution' },
-    { label: 'Result', id: 'mybiz-result' }, // 추후 구현 예정
-    { label: 'Learning', id: 'mybiz-learning' }, // 추후 구현 예정
+    { label: 'Result & Learning', id: 'mybiz-result' },
   ];
 
   const handleScroll = (id) => {

@@ -1,8 +1,57 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/MyBizSolution.css';
 import MyBizSidebar from './MyBizSidebar';
+import chatImg from '../assets/image/MyBizMChat.png';
+import mainImg from '../assets/image/MyBizMMain.png';
+import reviewImg from '../assets/image/MyBizMReviewAnalyze.png';
+import salesImg from '../assets/image/MyBizMSalesAnalyze.png';
 
 const MyBizSolution = () => {
+  const [activeFeature, setActiveFeature] = useState(0);
+  const featureRefs = useRef([]);
+  const phoneScreenRef = useRef(null); // 핸드폰 화면 참조 Ref
+
+  // 이미지 배열 순서: Feature 1 -> 2 -> 3 -> 4
+  // Feature 1: 자연어 질의응답 -> 채팅 화면 (chatImg)
+  // Feature 2: 맞춤형 정책 추천 -> 메인 화면 (mainImg)
+  // Feature 3: AI 광고 자동 생성 -> 리뷰 분석 화면 (reviewImg) - (임시 매핑)
+  // Feature 4: 직관적 데이터 시각화 -> 매출 분석 화면 (salesImg)
+  const screenImages = [chatImg, mainImg, reviewImg, salesImg];
+
+  useEffect(() => {
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = Number(entry.target.getAttribute('data-index'));
+          setActiveFeature(index);
+        }
+      });
+    };
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-45% 0px -45% 0px', // 화면 정중앙 10% 영역을 지날 때 트리거 (더 정밀함)
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    featureRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  // 이미지가 변경될 때 핸드폰 화면 스크롤을 맨 위로 초기화
+  useEffect(() => {
+    if (phoneScreenRef.current) {
+      phoneScreenRef.current.scrollTop = 0;
+    }
+  }, [activeFeature]);
+
   return (
     <section id="mybiz-solution" className="mybiz-solution-wrapper">
       {/* Shared Sidebar Navigation */}
@@ -32,7 +81,11 @@ const MyBizSolution = () => {
             <div className="features-column">
               
               {/* Feature 1 */}
-              <div className="feature-block">
+              <div 
+                className="feature-block"
+                data-index="0"
+                ref={el => featureRefs.current[0] = el}
+              >
                 <span className="feature-label">CORE FEATURE 01</span>
                 <h2 className="feature-title">💬 자연어 질의응답</h2>
                 <h3 className="feature-subtitle">Why? 복잡한 UI 학습 비용 제거</h3>
@@ -43,7 +96,11 @@ const MyBizSolution = () => {
               </div>
 
               {/* Feature 2 */}
-              <div className="feature-block">
+              <div 
+                className="feature-block"
+                data-index="1"
+                ref={el => featureRefs.current[1] = el}
+              >
                 <span className="feature-label">CORE FEATURE 02</span>
                 <h2 className="feature-title">🤖 맞춤형 정책 추천</h2>
                 <h3 className="feature-subtitle">Why? 정보 탐색 시간 '0'으로 단축</h3>
@@ -54,7 +111,11 @@ const MyBizSolution = () => {
               </div>
 
               {/* Feature 3 */}
-              <div className="feature-block">
+              <div 
+                className="feature-block"
+                data-index="2"
+                ref={el => featureRefs.current[2] = el}
+              >
                 <span className="feature-label">CORE FEATURE 03</span>
                 <h2 className="feature-title">✨ AI 광고 자동 생성</h2>
                 <h3 className="feature-subtitle">Why? 디자인 비용 & 기술 장벽 해결</h3>
@@ -65,7 +126,11 @@ const MyBizSolution = () => {
               </div>
 
               {/* Feature 4 */}
-              <div className="feature-block">
+              <div 
+                className="feature-block"
+                data-index="3"
+                ref={el => featureRefs.current[3] = el}
+              >
                 <span className="feature-label">CORE FEATURE 04</span>
                 <h2 className="feature-title">📉 직관적 데이터 시각화</h2>
                 <h3 className="feature-subtitle">Why? 데이터 문해력 격차 보완</h3>
@@ -80,15 +145,20 @@ const MyBizSolution = () => {
             {/* Right Column: Phone Mockup */}
             <div className="phone-column">
               <div className="phone-mockup">
-                <div className="phone-status-bar">
+                {/* <div className="phone-status-bar">
                   <span className="time">9:41</span>
                   <span className="icons">Signal Wifi Battery</span>
+                </div> */}
+                <div className="phone-screen" ref={phoneScreenRef}>
+                  {screenImages.map((src, index) => (
+                    <img 
+                      key={index}
+                      src={src} 
+                      alt={`App Screen ${index + 1}`} 
+                      className={`screen-image ${activeFeature === index ? 'active' : ''}`}
+                    />
+                  ))}
                 </div>
-                <div className="phone-screen">
-                  {/* Content placeholder */}
-                  <div className="screen-placeholder"></div>
-                </div>
-                <div className="phone-bottom-nav"></div>
               </div>
             </div>
 
