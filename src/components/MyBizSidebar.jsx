@@ -6,6 +6,7 @@ const MyBizSidebar = ({ activeSection }) => {
     { label: 'Overview', id: 'mybiz-overview' },
     { label: 'Problem', id: 'mybiz-problem' },
     { label: 'Solution', id: 'mybiz-solution' },
+    { label: 'Flow Chart', id: 'mybiz-flowchart' },
     { label: 'Result & Learning', id: 'mybiz-result' },
   ];
 
