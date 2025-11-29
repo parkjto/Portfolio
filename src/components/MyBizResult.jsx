@@ -128,7 +128,7 @@ const MyBizResult = () => {
               <h2 className="section-title-sm">Design Exploration</h2>
               <p className="design-desc">
                 디자인 및 개발 능력 향상을 위한 Web UI 스터디 작업물{'\n'}
-                모바일 만으로는 PC 사용자의 니즈를 만족할 수 없을 것 같다라는 생각에 web 디자인을 진행해보았습니다.
+                모바일 만으로는 PC 사용자의 니즈를 만족할 수 없을 것 같다라는 생각을 시작으로 web을 디자인과 제작해보았습니다.
               </p>
             </div>
 
