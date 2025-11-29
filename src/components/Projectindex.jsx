@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/ProjectIndex.css';
+import myBizViewImage from '../assets/image/MyBizview.png';
 
 const ProjectIndex = () => {
   const projects = [
@@ -46,7 +47,13 @@ const ProjectIndex = () => {
               </div>
               
               <div className="image-placeholder" aria-label="Project screenshot placeholder">
-                {/* Image or additional content goes here */}
+                {project.id === 1 ? (
+                  <img 
+                    src={myBizViewImage} 
+                    alt={project.title}
+                    className="project-image"
+                  />
+                ) : null}
               </div>
             </article>
           ))}
