@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Aboutme_style.css";
+import resumePdf from "../../assets/박준엽 이력서.pdf";
 
 export const AboutMe = () => {
   return (
@@ -10,6 +11,9 @@ export const AboutMe = () => {
         <div className="about-header">
           <div className="header-row">
             <div className="page-title">About Me</div>
+            <a href={resumePdf} download="박준엽_이력서.pdf" className="resume-download">
+              이력서 다운
+            </a>
           </div>
           <div className="header-row">
             <div className="intro-text">안녕하세요 디자인과 개발을 하는 박준엽 입니다</div>

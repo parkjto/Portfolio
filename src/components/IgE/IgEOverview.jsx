@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../styles/IgE/IgEOverview.css';
 import IgESidebar from './IgESidebar';
+import githubIcon from '../../assets/icons/github-icon.svg';
 
 const IgEOverview = () => {
   const badges = ['Web Service', 'Recommendation', 'Health'];
@@ -23,7 +24,12 @@ const IgEOverview = () => {
               </div>
               <h1 className="ige-project-overview-title">IgE</h1>
               <div className="ige-intro-group">
-                <p className="ige-project-subtitle">건강 정보를 바탕으로 메뉴를 추천해주는 웹 서비스</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                  <p className="ige-project-subtitle" style={{ margin: 0 }}>건강 정보를 바탕으로 메뉴를 추천해주는 웹 서비스</p>
+                  <a href="https://github.com/parkjto/IgE" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
+                    <img src={githubIcon} alt="GitHub" style={{ width: '24px', height: '24px', cursor: 'pointer' }} />
+                  </a>
+                </div>
               </div>
             </div>
 

@@ -2,6 +2,8 @@ import React from 'react';
 import '../../styles/MyBiz/MyBizOverview.css';
 import MyBizSidebar from './MyBizSidebar';
 import trophyIcon from '../../assets/icons/trophy-icon.svg'
+import githubIcon from '../../assets/icons/github-icon.svg';
+
 const MyBizOverview = () => {
   const badges = ['Mobile App', 'AI Assistant', 'Web Design'];
 
@@ -23,7 +25,12 @@ const MyBizOverview = () => {
               </div>
               <h1 className="mybiz-project-overview-title">MyBiz (마이비즈)</h1>
               <div className="mybiz-intro-group">
-                <p className="mybiz-project-subtitle">소상공인을 위한 AI 경영 도우미</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                  <p className="mybiz-project-subtitle" style={{ margin: 0 }}>소상공인을 위한 AI 경영 도우미</p>
+                  <a href="https://github.com/parkjto/MyBiz_Front_Flutter" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
+                    <img src={githubIcon} alt="GitHub" style={{ width: '24px', height: '24px', cursor: 'pointer' }} />
+                  </a>
+                </div>
                 <div className="mybiz-award-badge">
                   <div className="mybiz-award-icon">
                     <img src={trophyIcon} alt="Trophy icon" />

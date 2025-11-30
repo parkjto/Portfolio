@@ -112,12 +112,6 @@ const MyBizResult = () => {
                   GPT-4 API 특성을 이해하고 UX에 녹여내며, 기술 이해도가 디자인 효율에 미치는 영향을 체감했습니다.
                 </p>
               </div>
-              <div className="learning-card">
-                <h3 className="learning-title">Empathy</h3>
-                <p className="learning-desc">
-                  책상 위가 아닌 현장의 문제를 해결하는 '사용자 중심(User-Centric)' 사고를 실천했습니다.
-                </p>
-              </div>
             </div>
           </section>
 
@@ -132,7 +126,7 @@ const MyBizResult = () => {
               </p>
             </div>
 
-            <div className="slider-container">
+            <div className="slider-container pdf-hidden">
               <button className="slider-btn prev" onClick={prevSlide}>‹</button>
               
               <div className="slider-content">
@@ -156,7 +150,21 @@ const MyBizResult = () => {
               <button className="slider-btn next" onClick={nextSlide}>›</button>
             </div>
 
-            <div className="slider-dots">
+            {/* PDF Generate View: All Images */}
+            <div className="pdf-only" style={{ width: '100%', marginTop: '20px' }}>
+              {designImages.map((img) => (
+                <div key={img.id} style={{ marginBottom: '40px', pageBreakInside: 'avoid' }}>
+                   <h4 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '10px', color: '#333' }}>{img.label}</h4>
+                   <img 
+                    src={img.src} 
+                    alt={img.label} 
+                    style={{ width: '100%', height: 'auto', borderRadius: '8px', border: '1px solid #eee' }} 
+                   />
+                </div>
+              ))}
+            </div>
+
+            <div className="slider-dots pdf-hidden">
               {designImages.map((_, index) => (
                 <div 
                   key={index}

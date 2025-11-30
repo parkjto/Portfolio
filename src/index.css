@@ -33,3 +33,16 @@ body {
 a {
   color: inherit;
 }
+
+/* PDF Generation Utilities */
+.pdf-only {
+  display: none !important;
+}
+
+body.generating-pdf .pdf-only {
+  display: block !important;
+}
+
+body.generating-pdf .pdf-hidden {
+  display: none !important;
+}

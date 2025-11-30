@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../styles/Naru/NaruOverview.css';
 import NaruSidebar from './NaruSidebar';
+import githubIcon from '../../assets/icons/github-icon.svg';
 // import trophyIcon from '../../assets/icons/trophy-icon.svg'; // Trophy icon if needed
 
 const NaruOverview = () => {
@@ -24,7 +25,12 @@ const NaruOverview = () => {
               </div>
               <h1 className="naru-project-overview-title">나루나루 (NaruNaru)</h1>
               <div className="naru-intro-group">
-                <p className="naru-project-subtitle">현재 위치 기반 맛집 추천 서비스</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                  <p className="naru-project-subtitle" style={{ margin: 0 }}>현재 위치 기반 맛집 추천 서비스</p>
+                  <a href="https://github.com/parkjto/NaruNaru" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center' }}>
+                    <img src={githubIcon} alt="GitHub" style={{ width: '24px', height: '24px', cursor: 'pointer' }} />
+                  </a>
+                </div>
                 {/* Award badge placeholder if needed */}
                 {/* <div className="naru-award-badge">
                    <div className="naru-award-icon">
@@ -77,22 +83,6 @@ const NaruOverview = () => {
                     현재 위치 기반 주변 2-5km 반경 내 음식점을 찾고, 리뷰하고, 공유할 수 있는 맛집 추천 서비스입니다. 
                     카카오맵 API와 연동하여 실시간 위치 기반 정보를 제공하고, 사용자 선호도 기반 맞춤형 추천을 제공합니다.
                   </p>
-                  <a 
-                    href="https://github.com/parkjto/NaruNaru" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="github-link"
-                    style={{ 
-                      marginTop: '10px', 
-                      display: 'inline-block', 
-                      color: '#A0CC71', 
-                      fontWeight: '700', 
-                      textDecoration: 'none',
-                      fontSize: '16px'
-                    }}
-                  >
-                    💻 GitHub 저장소 바로가기
-                  </a>
                 </div>
               </div>
 
