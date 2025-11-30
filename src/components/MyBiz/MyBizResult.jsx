@@ -153,7 +153,7 @@ const MyBizResult = () => {
             {/* PDF Generate View: All Images */}
             <div className="pdf-only" style={{ width: '100%', marginTop: '20px' }}>
               {designImages.map((img) => (
-                <div key={img.id} style={{ marginBottom: '40px', pageBreakInside: 'avoid' }}>
+                <div key={img.id} className="pdf-separate-page" style={{ marginBottom: '40px', pageBreakInside: 'avoid' }}>
                    <h4 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '10px', color: '#333' }}>{img.label}</h4>
                    <img 
                     src={img.src} 

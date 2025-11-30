@@ -50,40 +50,83 @@ const ProjectSidebar = ({ activeSection, navItems }) => {
             pdf.addPage();
           }
 
-          const canvas = await html2canvas(element, {
-            scale: 2, // 해상도 향상
-            useCORS: true,
-            logging: false,
-            windowWidth: element.scrollWidth,
-            windowHeight: element.scrollHeight,
-            // 배경색 명시 (투명 방지)
-            backgroundColor: '#ffffff'
-          });
+          // 체크: 해당 섹션 내에 개별 페이지로 분리해야 할 항목(pdf-separate-page)이 있는지 확인
+          const separatePages = element.getElementsByClassName('pdf-separate-page');
+          
+          if (separatePages.length > 0) {
+            // 1. 메인 콘텐츠 캡처 (슬라이드 이미지들은 숨김)
+            // 개별 페이지 요소들을 잠시 숨김
+            Array.from(separatePages).forEach(el => el.style.display = 'none');
+            
+            // 메인 영역 캡처
+            const mainCanvas = await html2canvas(element, {
+              scale: 2,
+              useCORS: true,
+              logging: false,
+              windowWidth: element.scrollWidth,
+              windowHeight: element.scrollHeight,
+              backgroundColor: '#ffffff'
+            });
+            
+            addToPdf(mainCanvas);
+            
+            // 2. 개별 슬라이드 이미지들 캡처
+            // 숨겼던 요소 다시 표시
+            Array.from(separatePages).forEach(el => el.style.display = 'block');
+            
+            for (let j = 0; j < separatePages.length; j++) {
+              const subEl = separatePages[j];
+              pdf.addPage();
+              
+              const subCanvas = await html2canvas(subEl, {
+                scale: 2,
+                useCORS: true,
+                logging: false,
+                windowWidth: subEl.scrollWidth,
+                windowHeight: subEl.scrollHeight,
+                backgroundColor: '#ffffff'
+              });
+              
+              addToPdf(subCanvas);
+            }
+          } else {
+            // 일반 섹션 캡처
+            const canvas = await html2canvas(element, {
+              scale: 2, // 해상도 향상
+              useCORS: true,
+              logging: false,
+              windowWidth: element.scrollWidth,
+              windowHeight: element.scrollHeight,
+              // 배경색 명시 (투명 방지)
+              backgroundColor: '#ffffff'
+            });
 
-          const imgData = canvas.toDataURL('image/png');
-          const imgProps = pdf.getImageProperties(imgData);
-          
-          // 가로 기준 맞춤 (Landscape)
-          // 이미지가 페이지 비율보다 더 길쭉하면(세로로), 세로에 맞춤
-          // 이미지가 더 넓적하면(가로로), 가로에 맞춤
-          
-          const pdfRatio = pdfWidth / pdfHeight;
-          const imgRatio = imgProps.width / imgProps.height;
-          
-          let renderWidth = pdfWidth;
-          let renderHeight = pdfWidth / imgRatio;
-          
-          // 만약 계산된 높이가 페이지 높이보다 크면, 높이 기준으로 다시 계산
-          if (renderHeight > pdfHeight) {
-             renderHeight = pdfHeight;
-             renderWidth = pdfHeight * imgRatio;
+            addToPdf(canvas);
           }
           
-          // 중앙 정렬
-          const x = (pdfWidth - renderWidth) / 2;
-          const y = (pdfHeight - renderHeight) / 2;
-          
-          pdf.addImage(imgData, 'PNG', x, y, renderWidth, renderHeight);
+          function addToPdf(canvas) {
+            const imgData = canvas.toDataURL('image/png');
+            const imgProps = pdf.getImageProperties(imgData);
+            
+            // 가로 기준 맞춤 (Landscape)
+            const pdfRatio = pdfWidth / pdfHeight;
+            const imgRatio = imgProps.width / imgProps.height;
+            
+            let renderWidth = pdfWidth;
+            let renderHeight = pdfWidth / imgRatio;
+            
+            // 만약 계산된 높이가 페이지 높이보다 크면, 높이 기준으로 다시 계산
+            if (renderHeight > pdfHeight) {
+               renderHeight = pdfHeight;
+               renderWidth = pdfHeight * imgRatio;
+            }
+            
+            // 중앙 정렬
+            const x = (pdfWidth - renderWidth) / 2;
+            const y = (pdfHeight - renderHeight) / 2;
+            
+            pdf.addImage(imgData, 'PNG', x, y, renderWidth, renderHeight);
+          }
         }
       }
 

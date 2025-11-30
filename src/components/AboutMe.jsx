@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Aboutme_style.css";
-import resumePdf from "../../assets/박준엽 이력서.pdf";
+import resumePdf from "../../assets/Resume_ParkJunYeop.pdf";
 
 export const AboutMe = () => {
   return (
