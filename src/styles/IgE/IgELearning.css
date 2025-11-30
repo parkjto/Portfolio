@@ -1,0 +1,189 @@
+.ige-learning-wrapper {
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Pretendard", sans-serif;
+  box-sizing: border-box;
+}
+
+.ige-learning-container {
+  display: flex;
+  width: 100%;
+  max-width: 1680px;
+}
+
+.ige-learning-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 80px 100px;
+}
+
+.learning-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #4C4CFF;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.hero-heading {
+  font-size: 42px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.3;
+  margin: 0;
+  word-break: keep-all;
+}
+
+.highlight-text {
+  color: #4C4CFF;
+}
+
+.learning-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  align-items: stretch; /* 카드 높이 맞춤 */
+}
+
+.learning-card {
+  background: #f8fafc;
+  padding: 36px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* overflow 방지를 위해 min-height 제거 또는 유동적으로 설정 */
+  height: auto; 
+}
+
+.learning-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  border-color: #cbd5e1;
+}
+
+.learning-card.full-width {
+  grid-column: span 2;
+  background: #fff;
+  border: 2px solid #4C4CFF;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 장식용 배경 요소 추가 */
+.learning-card.full-width::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, transparent 50%, rgba(76, 76, 255, 0.05) 50%);
+  pointer-events: none;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.card-icon {
+  width: 36px;
+  height: 36px;
+  background-color: #4C4CFF;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.card-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4b5563;
+  margin: 0;
+  word-break: keep-all; /* 한글 단어 잘림 방지 */
+}
+
+.lesson-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lesson-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #374151;
+  background-color: #f1f5f9;
+  padding: 12px 16px;
+  border-radius: 12px;
+}
+
+.check-icon {
+  color: #4C4CFF;
+  font-weight: bold;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  .ige-learning-container {
+    flex-direction: column;
+  }
+  
+  .ige-learning-content {
+    padding: 60px 24px;
+    gap: 40px;
+  }
+  
+  .hero-heading {
+    font-size: 32px;
+  }
+
+  .learning-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .learning-card.full-width {
+    grid-column: span 1;
+  }
+  
+  .learning-card {
+    padding: 24px;
+  }
+}

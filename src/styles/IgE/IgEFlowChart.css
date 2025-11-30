@@ -1,0 +1,223 @@
+.ige-flowchart-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+}
+
+.ige-flowchart-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1680px;
+}
+
+.ige-flowchart-main {
+  flex: 1;
+  padding: 0 80px;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  max-width: 916px;
+}
+
+.ige-flowchart-header {
+  margin-bottom: 80px;
+}
+
+.ige-header-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #4C4CFF; /* IgE Color */
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.ige-header-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.2;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.02em;
+}
+
+.ige-header-description {
+  font-size: 18px;
+  font-weight: 400;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ige-flowchart-section {
+  margin-bottom: 100px;
+}
+
+.ige-section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.01em;
+}
+
+.ige-section-description {
+  font-size: 16px;
+  font-weight: 400;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0 0 40px 0;
+}
+
+/* Image Container */
+.ige-flowchart-image-container {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 40px;
+  margin-bottom: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Pipeline Container (Scrollable) */
+.ige-pipeline-container {
+  display: block;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  justify-content: unset;
+  align-items: unset;
+  
+  /* Firefox scrollbar */
+  scrollbar-width: auto;
+  scrollbar-color: #cbd5e1 #f1f5f9; /* Slate 300 thumb, Slate 100 track */
+}
+
+.ige-flowchart-image-container:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Webkit Scrollbar Customization (Unified Grey) */
+.ige-pipeline-container::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.ige-pipeline-container::-webkit-scrollbar-track {
+  background-color: #f1f5f9; /* Slate 100 */
+  border-top: 1px solid #e2e8f0;
+  border-radius: 0 0 12px 12px;
+}
+
+.ige-pipeline-container::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1; /* Slate 300 - Light Grey */
+  border-radius: 10px;
+  border: 4px solid transparent;
+  background-clip: content-box;
+}
+
+.ige-pipeline-container::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8; /* Slate 400 - Darker Grey */
+}
+
+.ige-flowchart-image {
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  /* Width is controlled via inline styles */
+}
+
+/* Info Box */
+.ige-info-box {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 28px;
+  margin-top: 32px;
+}
+
+.ige-info-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.01em;
+}
+
+.ige-info-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ige-info-list li {
+  font-size: 15px;
+  font-weight: 400;
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.ige-info-list li:last-child {
+  margin-bottom: 0;
+}
+
+.ige-info-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #4C4CFF; /* IgE Color */
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.ige-info-list li strong {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .ige-flowchart-main {
+    padding: 40px 20px;
+    margin-top: 0;
+    max-width: 100%;
+  }
+
+  .ige-header-title {
+    font-size: 32px;
+  }
+  
+  .ige-section-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ige-flowchart-main {
+    padding: 20px 16px;
+  }
+
+  .ige-header-title {
+    font-size: 28px;
+  }
+  
+  .ige-header-description {
+    font-size: 16px;
+  }
+  
+  .ige-section-title {
+    font-size: 22px;
+  }
+}

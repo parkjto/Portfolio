@@ -1,0 +1,260 @@
+/* Scoped styles for NaruResult component */
+.naru-result-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+.naru-result-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1680px;
+}
+
+/* Main Content */
+.naru-result-main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 80px;
+  margin-top: 80px; /* Aligned with sidebar top padding relative to content */
+  margin-bottom: 80px;
+  max-width: 916px; /* From Figma Container width */
+}
+
+/* Section Common */
+.naru-result-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.naru-result-section:last-child {
+  margin-bottom: 0;
+}
+
+.naru-section-header {
+
+}
+
+.naru-section-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #A0CC71; /* Main Green */
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.naru-section-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.naru-section-title-sm {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+/* Result Header Area */
+.naru-award-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f9ed;
+  border: 1px solid #dcebc4;
+  border-radius: 8px;
+  padding: 0 16px;
+  height: 36px;
+  width: fit-content;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.naru-award-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: #5d7d3b;
+}
+
+/* Key Metrics Emphasis Style */
+.naru-result-card-metrics {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.naru-metrics-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.naru-metric-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.naru-metric-value {
+  font-size: 48px;
+  font-weight: 800;
+  color: #A0CC71; /* Main Green */
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.naru-metric-unit {
+  font-size: 20px;
+  font-weight: 600;
+  color: #6b7280;
+  margin-left: 4px;
+}
+
+.naru-metric-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.naru-metric-desc {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.naru-metric-divider {
+  width: 1px;
+  height: 80px;
+  background-color: #e5e7eb;
+  margin: 0 40px;
+}
+
+.naru-card-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #a3a3a3;
+  margin-bottom: 0px;
+}
+
+
+/* Divider */
+.naru-result-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #f2f4f6;
+}
+
+/* Learning Grid */
+.naru-learning-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.naru-learning-card {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 20px;
+  height: 180px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.naru-learning-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.naru-learning-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: #6b726b;
+  line-height: 1.4;
+}
+
+/* Design Section */
+.naru-design-header-sub {
+  font-size: 12px;
+    font-weight: 700;
+    color: #A0CC71; /* Main Green */
+    margin-bottom: 6px;
+    line-height: 1.2;
+}
+
+.naru-design-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666666;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+/* Slider Styles (Not actively used in current layout but kept for consistency) */
+.naru-slider-container {
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-radius: 12px;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.naru-slider-content {
+  position: relative;
+  width: 100%;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .naru-result-wrapper {
+    flex-direction: column;
+  }
+  
+  .naru-result-main-content {
+    padding: 40px 20px;
+    margin-top: 0;
+  }
+  
+  .naru-learning-grid, .naru-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile Metrics */
+@media (max-width: 768px) {
+  .naru-metrics-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .naru-metric-divider {
+    display: none;
+  }
+}

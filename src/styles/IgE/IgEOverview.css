@@ -1,0 +1,227 @@
+.ige-overview-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+.ige-overview-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1680px;
+}
+
+/* Main Content */
+.ige-main-content-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding: 80px 100px;
+}
+
+/* Overview Section */
+.ige-overview-section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Hero Heading */
+.ige-hero-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ige-badge-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ige-overview-badge {
+  background-color: #e8f0fe;
+  color: #4C4CFF; /* IgE Main Color */
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 100px;
+  letter-spacing: -0.15px;
+  white-space: nowrap;
+}
+
+.ige-project-overview-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #4C4CFF; /* IgE Main Color */
+  letter-spacing: 0.07px;
+  margin: 0;
+}
+
+.ige-intro-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ige-project-subtitle {
+  font-size: 20px;
+  font-weight: 500;
+  color: #2c2c2c;
+  letter-spacing: -0.45px;
+  margin: 0;
+}
+
+/* Hero Info Grid */
+.ige-hero-info-grid {
+  display: flex;
+  gap: 60px;
+  padding: 30px 0;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+  flex-wrap: wrap;
+}
+
+.ige-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ige-info-label {
+  font-size: 14px;
+  font-weight: 900;
+  color: #7a7a7a;
+  letter-spacing: 0;
+}
+
+.ige-info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ige-info-primary {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: -0.45px;
+}
+
+.ige-info-secondary {
+  font-size: 13px;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: -0.45px;
+}
+
+/* Project Detail Grid */
+.ige-project-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 20px;
+}
+
+.ige-detail-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ige-block-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #4C4CFF; /* IgE Main Color */
+  margin: 0;
+}
+
+.ige-goal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ige-goal-text {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: -0.45px;
+  margin: 0;
+}
+
+.ige-goal-highlight {
+  font-weight: 600;
+  color: #4C4CFF; /* IgE Main Color */
+}
+
+.ige-contributions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ige-contribution-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ige-contrib-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: -0.45px;
+  margin: 0;
+}
+
+.ige-contrib-desc {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: -0.45px;
+  margin: 0;
+}
+
+/* Media Queries */
+@media (max-width: 1280px) {
+  .ige-project-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ige-overview-wrapper {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .ige-main-content-area {
+    padding: 40px 20px;
+  }
+
+  .ige-hero-info-grid {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ige-project-overview-title {
+    font-size: 32px;
+  }
+
+  .ige-project-subtitle {
+    font-size: 18px;
+  }
+
+  .ige-hero-info-grid {
+    flex-direction: column;
+    gap: 24px;
+  }
+}

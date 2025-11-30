@@ -1,0 +1,162 @@
+import React, { useState, useEffect } from 'react';
+import '../../styles/Naru/NaruResult.css';
+import NaruSidebar from './NaruSidebar';
+import trophyIcon from '../../assets/icons/trophy-icon.svg';
+// 디자인 이미지가 없다면 Placeholder를 사용하거나 기존 이미지를 재활용합니다.
+// 예시로 MyBiz 이미지를 주석 처리하고 Placeholder 텍스트를 사용합니다.
+import designImage1 from '../../assets/image/Naru/Naruindex.png'; // 임시 이미지
+
+const NaruResult = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isFullScreen, setIsFullScreen] = useState(false);
+
+  const designImages = [
+    { id: 1, src: designImage1, label: 'Main & Search UI' },
+    // 추가 이미지가 있다면 여기에 등록
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === designImages.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? designImages.length - 1 : prev - 1));
+  };
+  
+  const toggleFullScreen = () => {
+    setIsFullScreen(!isFullScreen);
+  };
+
+  // ESC 키로 전체화면 닫기
+  useEffect(() => {
+    if (!isFullScreen) return;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape' || event.key === 'Esc') {
+        setIsFullScreen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isFullScreen]);
+
+  return (
+    <div id="naru-result" className="naru-result-container">
+      <div className="naru-result-wrapper">
+        {/* Sidebar specific to this page layout */}
+        <NaruSidebar activeSection="Result & Future" />
+        
+        {/* Main Content Area */}
+        <main className="naru-result-main-content">
+          
+          {/* Result Section */}
+          <section className="naru-result-section">
+            <div className="naru-section-header">
+              <div className="naru-section-label">RESULT & IMPACT</div>
+              <h2 className="naru-section-title">프로젝트 성과</h2>
+            </div>
+            
+            {/* Award Box - Optional */}
+            {/* <div className="naru-award-box">
+              <img src={trophyIcon} alt="Trophy" width="20" height="20" />
+              <span className="naru-award-text">성과 텍스트 입력</span>
+            </div> */}
+
+            {/* Key Metrics Emphasis Style */}
+            <div className="naru-result-card-metrics">
+              <div className="naru-card-label">QUANTITATIVE</div>
+              
+              <div className="naru-metrics-grid">
+                {/* Metric 1 */}
+                <div className="naru-metric-item">
+                  <div className="naru-metric-value">3 <span className="naru-metric-unit">Months</span></div>
+                  <div className="naru-metric-label">Development Period</div>
+                  <p className="naru-metric-desc">기획부터 개발까지<br/>3개월 간의 프로젝트 진행</p>
+                </div>
+
+                {/* Metric 2 */}
+                <div className="naru-metric-divider"></div>
+
+                <div className="naru-metric-item">
+                  <div className="naru-metric-value">100<span className="naru-metric-unit">%</span></div>
+                  <div className="naru-metric-label">Frontend Ownership</div>
+                  <p className="naru-metric-desc">Flutter 앱 화면 구현 및<br/>상태 관리 로직 100% 담당</p>
+                </div>
+                </div>
+            </div>
+          </section>
+
+          <div className="naru-result-divider" />
+
+          {/* Learning Section */}
+          <section className="naru-result-section">
+            <div className="naru-section-header">
+              <div className="naru-section-label">RETROSPECTIVE</div>
+              <h2 className="naru-section-title-sm">성장 포인트</h2>
+            </div>
+
+            <div className="naru-learning-grid">
+              <div className="naru-learning-card">
+                <h3 className="naru-learning-title">Cross-Platform</h3>
+                <p className="naru-learning-desc">
+                  Flutter를 사용하여 Android/iOS 크로스 플랫폼 개발 환경을 구축하고, 단일 코드베이스의 효율성을 경험했습니다.
+                </p>
+              </div>
+              <div className="naru-learning-card">
+                <h3 className="naru-learning-title">API Integration</h3>
+                <p className="naru-learning-desc">
+                  Kakao Map API와 백엔드 REST API를 연동하며 비동기 데이터 처리와 에러 핸들링 노하우를 쌓았습니다.
+                </p>
+              </div>
+              <div className="naru-learning-card">
+                <h3 className="naru-learning-title">User Experience</h3>
+                <p className="naru-learning-desc">
+                  위치 기반 서비스의 특성을 고려하여 로딩 속도 최적화와 직관적인 마커 클러스터링 UX를 고민했습니다.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Design/Future Section */}
+          <section className="naru-result-section" style={{ marginBottom: 0 }}>
+            <div className="naru-section-header">
+              <div className="naru-design-header-sub">NEXT STEP</div>
+              <h2 className="naru-section-title-sm">Future Plans</h2>
+              <p className="naru-design-desc">
+                서비스 고도화를 위한 향후 개발 및 확장 계획입니다.
+              </p>
+            </div>
+
+            {/* Future Plans as a List or Cards (Reusing styles or simple list) */}
+            <div className="naru-learning-grid">
+                <div className="naru-learning-card">
+                    <h4 className="naru-learning-title">AI 고도화</h4>
+                    <p className="naru-learning-desc">
+                        사용자 리뷰 텍스트 분석을 통한 감성 분석 및 더욱 정교한 개인화 추천 알고리즘 적용
+                    </p>
+                </div>
+                <div className="naru-learning-card">
+                    <h4 className="naru-learning-title">수익 모델 구축</h4>
+                    <p className="naru-learning-desc">
+                        지역 소상공인과 연계한 타겟 광고 시스템 및 예약 수수료 모델 기획
+                    </p>
+                </div>
+                <div className="naru-learning-card">
+                    <h4 className="naru-learning-title">커뮤니티 확장</h4>
+                    <p className="naru-learning-desc">
+                        신뢰할 수 있는 리뷰어 뱃지 시스템 도입 및 유저 간 소통 기능 강화
+                    </p>
+                </div>
+            </div>
+          </section>
+
+        </main>
+      </div>
+    </div>
+  );
+};
+
+export default NaruResult;

@@ -1,0 +1,312 @@
+.naru-overview-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+.naru-overview-wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1680px;
+}
+
+/* Sidebar Navigation */
+.naru-sidebar {
+  width: 241px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  padding-left: 40px;
+}
+
+.naru-nav-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.naru-nav-item {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  text-decoration: none;
+  font-family: "Pretendard", sans-serif;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+}
+
+.naru-nav-item.active {
+  font-weight: 600;
+  font-size: 20px;
+  color: #111827;
+}
+
+.naru-nav-item.inactive {
+  font-weight: 600;
+  font-size: 16px;
+  color: #9b9b9b;
+  transition: color 0.2s ease;
+}
+
+.naru-nav-item.inactive:hover {
+  color: #111827;
+}
+
+/* Main Content */
+.naru-main-content-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  padding: 80px 100px;
+}
+
+/* Overview Section */
+.naru-overview-section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Hero Heading */
+.naru-hero-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.naru-badge-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.naru-overview-badge {
+  background-color: #f4f9ed; /* Light green bg */
+  color: #A0CC71; /* Main Green */
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 100px;
+  letter-spacing: -0.15px;
+  white-space: nowrap;
+}
+
+.naru-project-overview-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #A0CC71; /* Main Green */
+  letter-spacing: 0.07px;
+  margin: 0;
+}
+
+.naru-intro-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.naru-project-subtitle {
+  font-size: 20px;
+  font-weight: 500;
+  color: #2c2c2c;
+  letter-spacing: -0.45px;
+  margin: 0;
+}
+
+.naru-award-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f9ed; /* Light green bg */
+  border: 1px solid #dcebc4; /* Light green border */
+  border-radius: 8px;
+  padding: 0 16px;
+  height: 36px;
+  width: fit-content;
+  gap: 8px;
+}
+
+.naru-award-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.naru-award-icon img {
+  display: block;
+}
+
+.naru-award-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: #5d7d3b; /* Dark Green Text */
+}
+
+/* Hero Info Grid */
+.naru-hero-info-grid {
+  display: flex;
+  gap: 60px;
+  padding: 30px 0;
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+  flex-wrap: wrap;
+}
+
+.naru-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.naru-info-label {
+  font-size: 14px;
+  font-weight: 900;
+  color: #7a7a7a;
+  letter-spacing: 0;
+}
+
+.naru-info-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.naru-info-primary {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: -0.45px;
+}
+
+.naru-info-secondary {
+  font-size: 13px;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: -0.45px;
+}
+
+/* Project Detail Grid */
+.naru-project-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 20px;
+}
+
+.naru-detail-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.naru-block-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #A0CC71; /* Main Green */
+  margin: 0;
+}
+
+.naru-goal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.naru-goal-text {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: -0.45px;
+  margin: 0;
+}
+
+.naru-goal-highlight {
+  font-weight: 600;
+  color: #A0CC71; /* Main Green */
+}
+
+.naru-contributions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.naru-contribution-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.naru-contrib-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: -0.45px;
+  margin: 0;
+}
+
+.naru-contrib-desc {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: -0.45px;
+  margin: 0;
+}
+
+/* Media Queries */
+@media (max-width: 1280px) {
+  .naru-project-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .naru-overview-wrapper {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .naru-sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 0;
+    padding-bottom: 10px;
+  }
+
+  .naru-nav-block {
+    flex-direction: row;
+    gap: 24px;
+  }
+  
+  .naru-main-content-area {
+    padding: 40px 20px;
+  }
+
+  .naru-hero-info-grid {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .naru-project-overview-title {
+    font-size: 32px;
+  }
+
+  .naru-project-subtitle {
+    font-size: 18px;
+  }
+
+  .naru-hero-info-grid {
+    flex-direction: column;
+    gap: 24px;
+  }
+}

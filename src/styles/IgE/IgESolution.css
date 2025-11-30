@@ -1,0 +1,334 @@
+.ige-solution-wrapper {
+  width: 100%;
+  background-color: #f8fafc;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Pretendard", sans-serif;
+  box-sizing: border-box;
+}
+
+.ige-content-container {
+    display: flex;
+    width: 100%;
+    max-width: 1680px;
+}
+
+.ige-main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 60px; /* 간격 조정 */
+  padding: 80px 100px;
+}
+
+.solution-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #4C4CFF;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.hero-heading {
+  font-size: 48px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.highlight-text {
+  color: #4C4CFF;
+}
+
+/* Web Slider Section (MyBiz Result Style Adaptation) */
+.ige-web-slider-section {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.ige-slider-container {
+  position: relative;
+  width: 70%; /* 컨테이너 자체를 70%로 설정하여 중앙 정렬 */
+  margin: 0 auto 20px auto;
+  background-color: transparent;
+  border: none;
+  border-radius: 12px;
+  padding: 0;
+}
+
+.ige-slider-content {
+  position: relative;
+  width: 100%; /* 부모(70%)에 맞춤 */
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  background-color: #fff;
+}
+
+.ige-slider-image {
+  width: 100%;
+  height: auto;
+  max-height: 420px; 
+  display: block;
+  object-fit: cover;
+  background-color: #f8f9fa;
+}
+
+/* Slider Bottom Bar */
+.ige-slider-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #fff;
+  border-top: 1px solid #e9ecef;
+  padding: 10px 16px;
+}
+
+.ige-slider-caption {
+  font-size: 14px;
+  font-weight: 700;
+  color: #4b5563;
+  text-align: center;
+}
+
+.ige-fullscreen-btn {
+  position: absolute;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #fdfdfd;
+  border: 1px solid #fcfcfc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ige-fullscreen-btn:hover {
+  background-color: #e5e7eb;
+}
+
+.ige-fullscreen-btn img {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+}
+
+/* Slider Controls */
+.ige-slider-btn {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  border-radius: 0;
+  background-color: transparent;
+  border: none;
+  color: #d1d5db; /* 기본 회색 */
+  font-size: 50px; 
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: none;
+  z-index: 10;
+  transition: all 0.2s ease;
+  padding-bottom: 0;
+}
+
+.ige-slider-btn:hover {
+  background-color: #f9fafb;
+  color: #4C4CFF; /* 호버 시 포인트 컬러 */
+  transform: none;
+  box-shadow: none;
+}
+
+/* 화살표를 컨테이너 바깥으로 배치 (MyBiz 스타일) */
+.ige-slider-btn.prev {
+  left: -60px; /* 컨테이너 바깥 60px */
+  border-radius: 12px 0 0 12px;
+  transform: none;
+}
+
+.ige-slider-btn.next {
+  right: -60px; /* 컨테이너 바깥 60px */
+  border-radius: 0 12px 12px 0;
+  transform: none;
+}
+
+.ige-slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.ige-slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.ige-slider-dot.active {
+  background-color: #4C4CFF; /* IgE Color */
+  width: 24px;
+  border-radius: 100px;
+}
+
+/* Fullscreen Modal */
+.ige-fullscreen-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.ige-fullscreen-content {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ige-fullscreen-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.ige-fullscreen-hint {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: rgba(229, 231, 235, 0.8);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 10001;
+  white-space: nowrap;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Grid Section */
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.solution-card {
+  background: white;
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.solution-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.solution-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4b5563;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .ige-content-container {
+      flex-direction: column;
+  }
+  
+  .solution-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ige-main-content {
+      padding: 40px 20px;
+  }
+  
+  /* 태블릿/모바일에서는 컨테이너를 꽉 차게 */
+  .ige-slider-container {
+    width: 100%;
+  }
+  
+  .ige-slider-content {
+    width: 100%;
+  }
+  
+  /* 태블릿 이하에서는 화살표 위치 조정 */
+  .ige-slider-btn.prev {
+    left: 0;
+  }
+  
+  .ige-slider-btn.next {
+    right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .ige-slider-btn {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    border-radius: 50%;
+    color: #ffffff;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+  }
+  
+  .ige-slider-btn:hover {
+    background-color: transparent;
+  }
+  
+  /* 모바일에서는 화면 안쪽으로 */
+  .ige-slider-btn.prev { left: 10px; }
+  .ige-slider-btn.next { right: 10px; }
+
+  .ige-fullscreen-hint {
+    top: 16px;
+    font-size: 10px;
+    padding: 0 16px;
+    white-space: normal;
+    text-align: center;
+    max-width: 90vw;
+  }
+}

@@ -1,0 +1,174 @@
+/* Scoped styles for NaruProblem component */
+.naru-problem-wrapper {
+  display: flex;
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 1680px; /* Based on frame width */
+  margin: 0 auto;
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  color: #111111;
+}
+
+/* Main Content Area */
+.naru-main-content {
+  flex-grow: 1;
+  padding: 80px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* Hero Section */
+.naru-problem-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.naru-section-label {
+  color: #A0CC71; /* Main Green */
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.naru-hero-heading {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111111;
+  margin: 0;
+}
+
+/* Section Titles */
+.naru-problem-section-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #111111;
+}
+
+/* Discovery Grid */
+.naru-discovery-section {
+  width: 100%;
+}
+
+.naru-discovery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.naru-discovery-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.naru-discovery-number {
+  font-family: "Pretendard", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #A0CC71; /* Main Green */
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.naru-discovery-divider {
+  height: 1px;
+  background-color: #e5e5e5;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.naru-discovery-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #111111;
+}
+
+.naru-discovery-body {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666666;
+  line-height: 1.5;
+}
+
+/* Pain Points Grid */
+.naru-pain-section {
+  width: 100%;
+}
+
+.naru-pain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.naru-pain-card {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: transform 0.2s ease;
+}
+
+.naru-pain-card:hover {
+  transform: translateY(-2px);
+}
+
+.naru-pain-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #A0CC71; /* Main Green */
+}
+
+.naru-pain-content-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.naru-pain-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 4px;
+}
+
+.naru-pain-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #9e9e9e;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.naru-pain-body {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666666;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .naru-problem-wrapper {
+    flex-direction: column;
+  }
+  
+  .naru-main-content {
+    padding: 40px 20px;
+  }
+  
+  .naru-discovery-grid, .naru-pain-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}

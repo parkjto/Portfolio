@@ -1,28 +1,14 @@
 import React from 'react';
 import '../styles/ProjectIndex.css';
-import myBizViewImage from '../assets/image/MyBiz/MyBizview.png';
+import { PROJECTS } from '../constants/projectData';
 
 const ProjectIndex = () => {
-  const projects = [
-    {
-      id: 1,
-      number: '01',
-      title: 'MyBiz (마이비즈)',
-      badges: ['Mobile App', 'AI Assistant', 'Web Design'],
-    },
-    {
-      id: 2,
-      number: '02',
-      title: '나루나루',
-      badges: ['Mobile App', 'AI', 'Map'],
-    },
-    {
-      id: 3,
-      number: '03',
-      title: 'IgE',
-      badges: ['Web', 'AI Assistant', 'Web Design'],
-    },
-  ];
+  const handleProjectClick = (targetId) => {
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   return (
     <section className="project-index-container">
@@ -30,8 +16,20 @@ const ProjectIndex = () => {
         <h2 className="section-heading">Projects</h2>
         
         <div className="cards-container">
-          {projects.map((project) => (
-            <article key={project.id} className="project-card">
+          {PROJECTS.map((project) => (
+            <article 
+              key={project.id} 
+              className="project-card" 
+              onClick={() => handleProjectClick(project.targetId)}
+              style={{ cursor: 'pointer' }}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  handleProjectClick(project.targetId);
+                }
+              }}
+            >
               <div className="card-header">
                 <span className="card-number">{project.number}</span>
                 <div className="card-info">
@@ -47,11 +45,19 @@ const ProjectIndex = () => {
               </div>
               
               <div className="image-placeholder" aria-label="Project screenshot placeholder">
-                {project.id === 1 ? (
+                {project.image ? (
                   <img 
-                    src={myBizViewImage} 
+                    src={project.image} 
                     alt={project.title}
                     className="project-image"
+                    style={project.title === 'IgE' ? { 
+                      width: '80%', 
+                      height: '80%', 
+                      objectFit: 'contain',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)'
+                    } : {}}
                   />
                 ) : null}
               </div>
@@ -64,4 +70,3 @@ const ProjectIndex = () => {
 };
 
 export default ProjectIndex;
-

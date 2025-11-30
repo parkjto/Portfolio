@@ -1,0 +1,61 @@
+/* Sidebar Navigation - Common Style */
+.project-sidebar {
+  width: 241px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  padding-left: 40px;
+  box-sizing: border-box;
+}
+
+.project-nav-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-nav-item {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  text-decoration: none;
+  font-family: "Pretendard", sans-serif;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+}
+
+.project-nav-item.active {
+  font-weight: 600;
+  font-size: 20px;
+  color: #111827;
+}
+
+.project-nav-item.inactive {
+  font-weight: 600;
+  font-size: 16px;
+  color: #9b9b9b;
+  transition: color 0.2s ease;
+}
+
+.project-nav-item.inactive:hover {
+  color: #111827;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .project-sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 0;
+    padding-bottom: 10px;
+  }
+
+  .project-nav-block {
+    flex-direction: row;
+    gap: 24px;
+    padding: 0 20px; /* 모바일에서 좌우 여백 */
+  }
+}
+
