@@ -21,11 +21,7 @@ createRoot(document.getElementById('root')).render(
     <MyBizProblem />
     <MyBizSolution />
     <MyBizResult />
-   
-    {/* <AboutMeWrapper />
-    <ContainerWrapper />
-    
-    <FrameWrapper />*/}
+
     <Closing /> 
   </StrictMode>,
 )
