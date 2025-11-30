@@ -109,18 +109,29 @@ flex-grow: 0;
   color: #878787;
 }
 
-.resume-download {
+.download-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 12px;
+}
+
+.resume-download,
+.portfolio-download {
   font-size: 14px;
   color: #999999;
   text-decoration: none;
-  margin-left: 12px;
   cursor: pointer;
   font-family: var(--font-pretendard);
   display: flex;
   align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
-.resume-download:hover {
+.resume-download:hover,
+.portfolio-download:hover {
   text-decoration: underline;
   color: #666666;
 }

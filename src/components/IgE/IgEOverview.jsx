@@ -59,8 +59,7 @@ const IgEOverview = () => {
               <div className="ige-info-item">
                 <span className="ige-info-label">TEAM</span>
                 <div className="ige-info-content">
-                  <span className="ige-info-primary">2 Members</span>
-                  <span className="ige-info-secondary">Leader 1, Member 1</span>
+                  <span className="ige-info-primary">1 Members</span>
                 </div>
               </div>
             </div>
