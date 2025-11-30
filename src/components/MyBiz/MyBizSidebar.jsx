@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/MyBizOverview.css'; // 공유 스타일 사용
+import '../../styles/MyBiz/MyBizOverview.css'; // 공유 스타일 사용
 
 const MyBizSidebar = ({ activeSection }) => {
   const navItems = [

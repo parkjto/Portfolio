@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/MyBizProblem.css';
+import '../../styles/MyBiz/MyBizProblem.css';
 import MyBizSidebar from './MyBizSidebar';
 
 /**

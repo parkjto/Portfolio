@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/MyBizOverview.css';
+import '../../styles/MyBiz/MyBizOverview.css';
 import MyBizSidebar from './MyBizSidebar';
-import trophyIcon from '../assets/icons/trophy-icon.svg'
+import trophyIcon from '../../assets/icons/trophy-icon.svg'
 const MyBizOverview = () => {
   const badges = ['Mobile App', 'AI Assistant', 'Web Design'];
 

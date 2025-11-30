@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/ProjectIndex.css';
-import myBizViewImage from '../assets/image/MyBizview.png';
+import myBizViewImage from '../assets/image/MyBiz/MyBizview.png';
 
 const ProjectIndex = () => {
   const projects = [

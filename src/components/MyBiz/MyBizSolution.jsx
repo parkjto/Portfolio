@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/MyBizSolution.css';
+import '../../styles/MyBiz/MyBizSolution.css';
 import MyBizSidebar from './MyBizSidebar';
-import fullscreenIcon from '../assets/icons/fullscreen_icon.svg';
-import navImage from '../assets/image/MyBizNav.png';
-import salesImage from '../assets/image/MyBizMSalesAnalyze.png';
-import mainImage from '../assets/image/MyBizMMain.png';
-import chatImage from '../assets/image/MyBizMChat.png';
-import reviewImage from '../assets/image/MyBizMReviewAnalyze.png';
-import govImage from '../assets/image/MyBizMGov.png';
-import adImage from '../assets/image/MyBizMAD.png';
+import fullscreenIcon from '../../assets/icons/fullscreen_icon.svg';
+import navImage from '../../assets/image/MyBiz/MyBizNav.png';
+import salesImage from '../../assets/image/MyBiz/MyBizMSalesAnalyze.png';
+import mainImage from '../../assets/image/MyBiz/MyBizMMain.png';
+import chatImage from '../../assets/image/MyBiz/MyBizMChat.png';
+import reviewImage from '../../assets/image/MyBiz/MyBizMReviewAnalyze.png';
+import govImage from '../../assets/image/MyBiz/MyBizMGov.png';
+import adImage from '../../assets/image/MyBiz/MyBizMAD.png';
 
 const mobileScreens = [
   {

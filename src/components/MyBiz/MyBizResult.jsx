@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/MyBizResult.css';
+import '../../styles/MyBiz/MyBizResult.css';
 import MyBizSidebar from './MyBizSidebar';
-import trophyIcon from '../assets/icons/trophy-icon.svg';
-import fullscreenIcon from '../assets/icons/fullscreen_icon.svg';
-import webMainImg from '../assets/image/MyBizWebMain.png';
-import webReviewImg from '../assets/image/MyBizWebReviewAnalyze.png';
-import webSalesImg from '../assets/image/MyBizWebSalesAnalyze.png';
+import trophyIcon from '../../assets/icons/trophy-icon.svg';
+import fullscreenIcon from '../../assets/icons/fullscreen_icon.svg';
+import webMainImg from '../../assets/image/MyBiz/MyBizWebMain.png';
+import webReviewImg from '../../assets/image/MyBiz/MyBizWebReviewAnalyze.png';
+import webSalesImg from '../../assets/image/MyBiz/MyBizWebSalesAnalyze.png';
 
 const MyBizResult = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

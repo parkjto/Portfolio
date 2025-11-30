@@ -1,8 +1,8 @@
 import React from 'react';
-import '../styles/MyBizFlowChart.css';
+import '../../styles/MyBiz/MyBizFlowChart.css';
 import MyBizSidebar from './MyBizSidebar';
-import flowChartImage from '../assets/image/MyBizFlowchat.png';
-import pipelineFlowImage from '../assets/image/MyBizFlowchartPipe.png';
+import flowChartImage from '../../assets/image/MyBiz/MyBizFlowchat.png';
+import pipelineFlowImage from '../../assets/image/MyBiz/MyBizFlowchartPipe.png';
 
 const MyBizFlowChart = () => {
 
