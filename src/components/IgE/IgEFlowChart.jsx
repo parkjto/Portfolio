@@ -66,7 +66,7 @@ const IgEFlowChart = () => {
               <h4 className="ige-info-title">UX Highlights</h4>
               <ul className="ige-info-list">
                 <li><strong>Seamless Experience:</strong> 로그인 여부에 따른 자연스러운 화면 전환 및 기능 제한</li>
-                <li><strong>Core Features:</strong> 랜덤 메뉴 추천 -> 상세 정보 확인 -> 지도 검색으로 이어지는 핵심 동선</li>
+                  <li><strong>Core Features:</strong> 랜덤 메뉴 추천 → 상세 정보 확인 → 지도 검색으로 이어지는 핵심 동선</li>
                 <li><strong>Personalization:</strong> 마이페이지를 통한 개인 알레르기 정보 관리 및 맞춤형 서비스 제공</li>
               </ul>
             </div>

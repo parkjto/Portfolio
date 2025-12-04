@@ -3,6 +3,7 @@ import '../../styles/Naru/NaruResult.css';
 import NaruSidebar from './NaruSidebar';
 import trophyIcon from '../../assets/icons/trophy-icon.svg';
 
+const NaruResult = () => {
   return (
     <div id="naru-result" className="naru-result-container">
       <div className="naru-result-wrapper">
