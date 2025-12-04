@@ -1,6 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../../styles/Naru/NaruSolution.css';
 import NaruSidebar from './NaruSidebar';
+import { useSlider } from '../../hooks/useSlider';
+import { useFullScreen } from '../../hooks/useFullScreen';
+import { FULLSCREEN_HINTS, PDF_CLASSES } from '../../utils/constants';
+import { padNumber, safeGet } from '../../utils/helpers';
 import fullscreenIcon from '../../assets/icons/fullscreen_icon.svg';
 import naruMapImage from '../../assets/image/Naru/NaruMapMarker.png';
 import naruFilterImage from '../../assets/image/Naru/Narufilter.png';
@@ -47,48 +51,17 @@ const mobileScreens = [
 ];
 
 const NaruSolution = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isFullScreen, setIsFullScreen] = useState(false);
+  const { currentIndex, goNext, goPrev, goToIndex, getSlideClass } = useSlider(mobileScreens.length);
+  const { isFullScreen, toggleFullScreen } = useFullScreen();
 
-  const total = mobileScreens.length;
-
-  const goNext = () => {
-    setCurrentIndex((prev) => (prev === total - 1 ? 0 : prev + 1));
+  const slideClassNames = {
+    active: 'naru-mobile-slide-active',
+    prev: 'naru-mobile-slide-prev',
+    next: 'naru-mobile-slide-next',
+    hidden: 'naru-mobile-slide-hidden',
   };
 
-  const goPrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
-  };
-
-  const getSlideClass = (index) => {
-    if (index === currentIndex) return 'naru-mobile-slide-active';
-    const prevIndex = currentIndex === 0 ? total - 1 : currentIndex - 1;
-    const nextIndex = currentIndex === total - 1 ? 0 : currentIndex + 1;
-
-    if (index === prevIndex) return 'naru-mobile-slide-prev';
-    if (index === nextIndex) return 'naru-mobile-slide-next';
-    return 'naru-mobile-slide-hidden';
-  };
-
-  const toggleFullScreen = () => {
-    setIsFullScreen((prev) => !prev);
-  };
-
-  // ESC 키로 전체화면 닫기
-  useEffect(() => {
-    if (!isFullScreen) return;
-
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape' || event.key === 'Esc') {
-        setIsFullScreen(false);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isFullScreen]);
+  const getSlideClassName = (index) => getSlideClass(index, slideClassNames);
 
   return (
     <section id="naru-solution" className="naru-mobile-showcase-container">
@@ -106,7 +79,7 @@ const NaruSolution = () => {
                 </p>
           </header>
 
-            <div className="naru-mobile-slider">
+            <div className={`naru-mobile-slider ${PDF_CLASSES.HIDDEN}`}>
             <button
               className="naru-mobile-slider-btn prev"
               type="button"
@@ -120,13 +93,13 @@ const NaruSolution = () => {
               {mobileScreens.map((screen, index) => (
                 <article
                   key={screen.id}
-                  className={`naru-mobile-card naru-mobile-slide ${getSlideClass(index)}`}
+                  className={`naru-mobile-card naru-mobile-slide ${getSlideClassName(index)}`}
                 >
                                 <div className="naru-mobile-card-inner">
                                     <div className="naru-mobile-card-text">
                                         <div className="naru-mobile-card-label-row">
                         <span className="naru-mobile-card-index">
-                          {String(screen.id).padStart(2, '0')}
+                          {padNumber(screen.id)}
                         </span>
                         <span className="naru-mobile-card-chip">{screen.tag}</span>
                       </div>
@@ -234,51 +207,153 @@ const NaruSolution = () => {
             </button>
             
             {/* Slider Dots */}
-            <div className="naru-slider-dots">
+            <div className={`naru-slider-dots ${PDF_CLASSES.HIDDEN}`}>
               {mobileScreens.map((screen, index) => (
                 <div
                   key={screen.id}
                   className={`naru-slider-dot ${index === currentIndex ? 'active' : ''}`}
-                  onClick={() => setCurrentIndex(index)}
+                  onClick={() => goToIndex(index)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Go to slide ${index + 1}`}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      goToIndex(index);
+                    }
+                  }}
                 />
               ))}
-                                </div>
+            </div>
                             </div>
+
+          {/* PDF Generate View: All Cards Expanded */}
+          <div className={PDF_CLASSES.ONLY} style={{ width: '100%', marginTop: '20px' }}>
+            {mobileScreens.map((screen) => (
+              <div 
+                key={screen.id} 
+                className={PDF_CLASSES.SEPARATE_PAGE} 
+                style={{ 
+                  marginBottom: '40px', 
+                  pageBreakInside: 'avoid',
+                  breakInside: 'avoid'
+                }}
+              >
+                <article className="naru-mobile-card" style={{ 
+                  display: 'block',
+                  opacity: 1,
+                  transform: 'none',
+                  position: 'relative',
+                  width: '100%',
+                  margin: '0 auto'
+                }}>
+                  <div className="naru-mobile-card-inner">
+                    <div className="naru-mobile-card-text">
+                      <div className="naru-mobile-card-label-row">
+                        <span className="naru-mobile-card-index">
+                          {padNumber(screen.id)}
+                        </span>
+                        <span className="naru-mobile-card-chip">{screen.tag}</span>
+                      </div>
+                      <h3 className="naru-mobile-card-title">
+                        <span className="naru-mobile-card-title-label">{screen.label}</span>
+                        {screen.title}
+                      </h3>
+                      <p className="naru-mobile-card-subtitle">{screen.subtitle}</p>
+                      <p className="naru-mobile-card-description">{screen.description}</p>
+                    </div>
+
+                    <div className="naru-mobile-card-phone">
+                      {screen.id === 1 ? (
+                        <div className="naru-mobile-screen-image-wrapper">
+                          <img 
+                            src={naruMapImage} 
+                            alt={screen.title} 
+                            className="naru-mobile-screen-image"
+                          />
+                        </div>
+                      ) : screen.id === 2 ? (
+                        <div className="naru-mobile-screen-image-wrapper">
+                          <img 
+                            src={naruFilterImage} 
+                            alt={screen.title} 
+                            className="naru-mobile-screen-image"
+                          />
+                        </div>
+                      ) : screen.id === 3 ? (
+                        <div className="naru-mobile-screen-image-wrapper naru-mobile-screen-scrollable">
+                          <div className="naru-mobile-screen-scroll-container">
+                            <img 
+                              src={naruHomeImage} 
+                              alt={screen.title} 
+                              className="naru-mobile-screen-image naru-mobile-screen-scroll-image"
+                            />
+                          </div>
+                        </div>
+                      ) : screen.id === 4 ? (
+                        <div className="naru-mobile-screen-image-wrapper">
+                          <img 
+                            src={naruAIImage} 
+                            alt={screen.title} 
+                            className="naru-mobile-screen-image"
+                          />
+                        </div>
+                      ) : (
+                        <div className="naru-phone-frame">
+                          <div className="naru-phone-notch"></div>
+                          <div className="naru-phone-screen-placeholder">
+                            <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#888', marginBottom: '8px' }}>
+                              SCREENSHOT
+                            </span>
+                            <span style={{ fontSize: '11px', color: '#aaa' }}>
+                              (이미지 준비중)
+                            </span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </article>
+              </div>
+            ))}
+          </div>
         </main>
       </div>
 
-      {isFullScreen && (
-        <div className="naru-fullscreen-modal" onClick={toggleFullScreen}>
-          <div className="naru-fullscreen-hint">
-            ESC를 눌러 전체화면 보기를 끌 수 있습니다
-          </div>
-          <div className="naru-fullscreen-content">
-             {/* Render Fullscreen Image based on currentIndex */}
-             {mobileScreens[currentIndex].id === 1 ? (
+      {isFullScreen && (() => {
+        const currentScreen = safeGet(mobileScreens, currentIndex);
+        if (!currentScreen) return null;
+        
+        return (
+          <div className="naru-fullscreen-modal" onClick={toggleFullScreen}>
+            <div className="naru-fullscreen-hint">
+              {FULLSCREEN_HINTS.CLOSE}
+            </div>
+            <div className="naru-fullscreen-content">
+              {currentScreen.id === 1 ? (
                 <img 
                   src={naruMapImage} 
-                  alt={mobileScreens[currentIndex].title} 
+                  alt={currentScreen.title} 
                   className="naru-fullscreen-image"
                 />
-             ) : mobileScreens[currentIndex].id === 2 ? (
+              ) : currentScreen.id === 2 ? (
                 <img 
                   src={naruFilterImage} 
-                  alt={mobileScreens[currentIndex].title} 
+                  alt={currentScreen.title} 
                   className="naru-fullscreen-image"
                 />
-             ) : mobileScreens[currentIndex].id === 3 ? (
+              ) : currentScreen.id === 3 ? (
                 <img 
                   src={naruHomeImage} 
-                  alt={mobileScreens[currentIndex].title} 
+                  alt={currentScreen.title} 
                   className="naru-fullscreen-image"
                 />
-             ) : mobileScreens[currentIndex].id === 4 ? (
+              ) : currentScreen.id === 4 ? (
                 <img 
                   src={naruAIImage} 
-                  alt={mobileScreens[currentIndex].title} 
+                  alt={currentScreen.title} 
                   className="naru-fullscreen-image"
                 />
-             ) : (
+              ) : (
                 <div className="naru-phone-frame naru-fullscreen-phone-frame">
                     <div className="naru-phone-notch"></div>
                     <div className="naru-phone-screen-placeholder" style={{ justifyContent: 'center' }}>
@@ -287,8 +362,9 @@ const NaruSolution = () => {
                 </div>
              )}
             </div>
-        </div>
-      )}
+          </div>
+        );
+      })()}
     </section>
   );
 };

@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
+import ErrorBoundary from './components/ErrorBoundary.jsx'
 import PortfolioHero from './components/PortfolioHero.jsx'
 import { AboutMe } from './components/AboutMe.jsx'
 import ProjectIndex from './components/Projectindex.jsx'
@@ -23,28 +24,30 @@ import { Closing } from './components/Closing.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <PortfolioHero />
-    <AboutMe />
-    <ProjectIndex />
-    
-    <MyBizOverview />
-    <MyBizFlowChart />
-    <MyBizProblem />
-    <MyBizSolution />
-    <MyBizResult />
+    <ErrorBoundary>
+      <PortfolioHero />
+      <AboutMe />
+      <ProjectIndex />
+      
+      <MyBizOverview />
+      <MyBizFlowChart />
+      <MyBizProblem />
+      <MyBizSolution />
+      <MyBizResult />
 
-    <NaruOverview />
-    <NaruFlowChart />
-    <NaruProblem />
-    <NaruSolution />
-    <NaruResult />
+      <NaruOverview />
+      <NaruFlowChart />
+      <NaruProblem />
+      <NaruSolution />
+      <NaruResult />
 
-    <IgEOverview />
-    <IgEFlowChart />
-    <IgEProblem />
-    <IgESolution />
-    <IgELearning />
+      <IgEOverview />
+      <IgEFlowChart />
+      <IgEProblem />
+      <IgESolution />
+      <IgELearning />
 
-    <Closing /> 
+      <Closing />
+    </ErrorBoundary>
   </StrictMode>,
 )

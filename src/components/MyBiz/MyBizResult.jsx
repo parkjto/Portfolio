@@ -1,49 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../../styles/MyBiz/MyBizResult.css';
 import MyBizSidebar from './MyBizSidebar';
+import { useSlider } from '../../hooks/useSlider';
+import { useFullScreen } from '../../hooks/useFullScreen';
+import { FULLSCREEN_HINTS, PDF_CLASSES } from '../../utils/constants';
+import { safeGet } from '../../utils/helpers';
 import trophyIcon from '../../assets/icons/trophy-icon.svg';
 import fullscreenIcon from '../../assets/icons/fullscreen_icon.svg';
 import webMainImg from '../../assets/image/MyBiz/MyBizWebMain.png';
 import webReviewImg from '../../assets/image/MyBiz/MyBizWebReviewAnalyze.png';
 import webSalesImg from '../../assets/image/MyBiz/MyBizWebSalesAnalyze.png';
 
+const designImages = [
+  { id: 1, src: webMainImg, label: 'Web Main Dashboard' },
+  { id: 2, src: webReviewImg, label: 'Review Analysis UI' },
+  { id: 3, src: webSalesImg, label: 'Sales Analysis UI' },
+];
+
 const MyBizResult = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isFullScreen, setIsFullScreen] = useState(false);
+  const { currentIndex, goNext, goPrev, goToIndex } = useSlider(designImages.length);
+  const { isFullScreen, toggleFullScreen } = useFullScreen();
 
-  const designImages = [
-    { id: 1, src: webMainImg, label: 'Web Main Dashboard' },
-    { id: 2, src: webReviewImg, label: 'Review Analysis UI' },
-    { id: 3, src: webSalesImg, label: 'Sales Analysis UI' },
-  ];
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === designImages.length - 1 ? 0 : prev + 1));
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? designImages.length - 1 : prev - 1));
-  };
-  
-  const toggleFullScreen = () => {
-    setIsFullScreen(!isFullScreen);
-  };
-
-  // ESC 키로 전체화면 닫기
-  useEffect(() => {
-    if (!isFullScreen) return;
-
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape' || event.key === 'Esc') {
-        setIsFullScreen(false);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isFullScreen]);
+  const currentImage = safeGet(designImages, currentIndex);
 
   return (
     <div id="mybiz-result" className="mybiz-result-container">
@@ -126,64 +104,88 @@ const MyBizResult = () => {
               </p>
             </div>
 
-            <div className="slider-container pdf-hidden">
-              <button className="slider-btn prev" onClick={prevSlide}>‹</button>
+            <div className={`slider-container ${PDF_CLASSES.HIDDEN}`}>
+              <button className="slider-btn prev" onClick={goPrev} aria-label="Previous image">
+                ‹
+              </button>
               
-              <div className="slider-content">
-                <img 
-                  src={designImages[currentSlide].src} 
-                  alt={designImages[currentSlide].label} 
-                  className="slider-image"
-                />
-                
-                {/* 캡션과 전체화면 버튼을 포함하는 하단 바 */}
-                <div className="slider-bottom-bar">
-                  <div className="slider-caption">
-                    {designImages[currentSlide].label} ({currentSlide + 1}/{designImages.length})
+              {currentImage && (
+                <div className="slider-content">
+                  <img 
+                    src={currentImage.src} 
+                    alt={currentImage.label} 
+                    className="slider-image"
+                  />
+                  
+                  {/* 캡션과 전체화면 버튼을 포함하는 하단 바 */}
+                  <div className="slider-bottom-bar">
+                    <div className="slider-caption">
+                      {currentImage.label} ({currentIndex + 1}/{designImages.length})
+                    </div>
+                    <button 
+                      className="fullscreen-btn" 
+                      onClick={toggleFullScreen} 
+                      aria-label="View Fullscreen"
+                    >
+                      <img src={fullscreenIcon} alt="" />
+                    </button>
                   </div>
-                  <button className="fullscreen-btn" onClick={toggleFullScreen} aria-label="View Fullscreen">
-                    <img src={fullscreenIcon} alt="" />
-                  </button>
                 </div>
-              </div>
+              )}
 
-              <button className="slider-btn next" onClick={nextSlide}>›</button>
+              <button className="slider-btn next" onClick={goNext} aria-label="Next image">
+                ›
+              </button>
             </div>
 
             {/* PDF Generate View: All Images */}
-            <div className="pdf-only" style={{ width: '100%', marginTop: '20px' }}>
+            <div className={PDF_CLASSES.ONLY} style={{ width: '100%', marginTop: '20px' }}>
               {designImages.map((img) => (
-                <div key={img.id} className="pdf-separate-page" style={{ marginBottom: '40px', pageBreakInside: 'avoid' }}>
-                   <h4 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '10px', color: '#333' }}>{img.label}</h4>
-                   <img 
+                <div 
+                  key={img.id} 
+                  className={PDF_CLASSES.SEPARATE_PAGE} 
+                  style={{ marginBottom: '40px', pageBreakInside: 'avoid' }}
+                >
+                  <h4 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '10px', color: '#333' }}>
+                    {img.label}
+                  </h4>
+                  <img 
                     src={img.src} 
                     alt={img.label} 
                     style={{ width: '100%', height: 'auto', borderRadius: '8px', border: '1px solid #eee' }} 
-                   />
+                  />
                 </div>
               ))}
             </div>
 
-            <div className="slider-dots pdf-hidden">
+            <div className={`slider-dots ${PDF_CLASSES.HIDDEN}`}>
               {designImages.map((_, index) => (
                 <div 
                   key={index}
-                  className={`slider-dot ${currentSlide === index ? 'active' : ''}`}
-                  onClick={() => setCurrentSlide(index)}
+                  className={`slider-dot ${currentIndex === index ? 'active' : ''}`}
+                  onClick={() => goToIndex(index)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Go to slide ${index + 1}`}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      goToIndex(index);
+                    }
+                  }}
                 />
               ))}
             </div>
             
             {/* Fullscreen Modal */}
-            {isFullScreen && (
+            {isFullScreen && currentImage && (
               <div className="fullscreen-modal" onClick={toggleFullScreen}>
                 <div className="fullscreen-hint">
-                  ESC를 눌러 전체화면 보기를 끌 수 있습니다
+                  {FULLSCREEN_HINTS.CLOSE}
                 </div>
                 <div className="fullscreen-content">
                   <img 
-                    src={designImages[currentSlide].src} 
-                    alt={designImages[currentSlide].label} 
+                    src={currentImage.src} 
+                    alt={currentImage.label} 
                     className="fullscreen-image"
                   />
                 </div>

@@ -183,3 +183,57 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .ige-main-content {
+    padding: 40px 16px;
+    gap: 60px;
+  }
+
+  .hero-heading {
+    font-size: clamp(28px, 8vw, 48px);
+  }
+
+  .problem-section-title {
+    font-size: clamp(24px, 6vw, 32px);
+  }
+
+  .discovery-grid {
+    gap: 20px;
+  }
+
+  .discovery-card {
+    padding: 24px;
+    gap: 12px;
+  }
+
+  .discovery-title {
+    font-size: 18px;
+  }
+
+  .discovery-body {
+    font-size: 14px;
+  }
+
+  .pain-grid {
+    gap: 20px;
+  }
+
+  .pain-card {
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .pain-icon-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+
+  .pain-title {
+    font-size: 18px;
+  }
+
+  .pain-body {
+    font-size: 14px;
+  }
+}

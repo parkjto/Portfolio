@@ -1,47 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../../styles/IgE/IgESolution.css';
 import IgESidebar from './IgESidebar';
+import { useSlider } from '../../hooks/useSlider';
+import { useFullScreen } from '../../hooks/useFullScreen';
+import { FULLSCREEN_HINTS, PDF_CLASSES } from '../../utils/constants';
+import { safeGet } from '../../utils/helpers';
 import fullscreenIcon from '../../assets/icons/fullscreen_icon.svg';
 import igeMapImg from '../../assets/image/IgE/IgEMap.png';
 import igeRandomResultImg from '../../assets/image/IgE/IgERandomResult.png';
 import igeGif from '../../assets/image/IgE/IgE.gif';
 
+const webImages = [
+  { id: 1, src: igeGif, label: '맞춤형 메뉴 추천 결과' },
+  { id: 2, src: igeMapImg, label: '위치 기반 식당 검색' },
+];
+
 const IgESolution = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isFullScreen, setIsFullScreen] = useState(false);
+  const { currentIndex, goNext, goPrev, goToIndex } = useSlider(webImages.length);
+  const { isFullScreen, toggleFullScreen } = useFullScreen();
 
-  const webImages = [
-    { id: 1, src: igeGif, label: '맞춤형 메뉴 추천 결과' },
-    { id: 2, src: igeMapImg, label: '위치 기반 식당 검색' },
-  ];
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === webImages.length - 1 ? 0 : prev + 1));
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? webImages.length - 1 : prev - 1));
-  };
-  
-  const toggleFullScreen = () => {
-    setIsFullScreen(!isFullScreen);
-  };
-
-  // ESC 키로 전체화면 닫기
-  useEffect(() => {
-    if (!isFullScreen) return;
-
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape' || event.key === 'Esc') {
-        setIsFullScreen(false);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isFullScreen]);
+  const currentImage = safeGet(webImages, currentIndex);
 
   return (
     <section id="ige-solution" className="ige-solution-wrapper">
@@ -59,37 +37,84 @@ const IgESolution = () => {
 
           {/* Web UI Slider Section (MyBiz Result Style) */}
           <section className="ige-web-slider-section">
-            <div className="ige-slider-container">
-              <button className="ige-slider-btn prev" onClick={prevSlide}>‹</button>
-              
-              <div className="ige-slider-content">
-                <img 
-                  src={webImages[currentSlide].src} 
-                  alt={webImages[currentSlide].label} 
-                  className="ige-slider-image"
-                />
+            {currentImage && (
+              <div className={`ige-slider-container ${PDF_CLASSES.HIDDEN}`}>
+                <button className="ige-slider-btn prev" onClick={goPrev} aria-label="Previous image">
+                  ‹
+                </button>
                 
-                {/* 캡션과 전체화면 버튼을 포함하는 하단 바 */}
-                <div className="ige-slider-bottom-bar">
-                  <div className="ige-slider-caption">
-                    {webImages[currentSlide].label} ({currentSlide + 1}/{webImages.length})
+                <div className="ige-slider-content">
+                  <img 
+                    src={currentImage.src} 
+                    alt={currentImage.label} 
+                    className="ige-slider-image"
+                  />
+                  
+                  {/* 캡션과 전체화면 버튼을 포함하는 하단 바 */}
+                  <div className="ige-slider-bottom-bar">
+                    <div className="ige-slider-caption">
+                      {currentImage.label} ({currentIndex + 1}/{webImages.length})
+                    </div>
+                    <button 
+                      className="ige-fullscreen-btn" 
+                      onClick={toggleFullScreen} 
+                      aria-label="View Fullscreen"
+                    >
+                      <img src={fullscreenIcon} alt="" />
+                    </button>
                   </div>
-                  <button className="ige-fullscreen-btn" onClick={toggleFullScreen} aria-label="View Fullscreen">
-                    <img src={fullscreenIcon} alt="" />
-                  </button>
                 </div>
+
+                <button className="ige-slider-btn next" onClick={goNext} aria-label="Next image">
+                  ›
+                </button>
               </div>
+            )}
 
-              <button className="ige-slider-btn next" onClick={nextSlide}>›</button>
-            </div>
-
-            <div className="ige-slider-dots">
+            <div className={`ige-slider-dots ${PDF_CLASSES.HIDDEN}`}>
               {webImages.map((_, index) => (
                 <div 
                   key={index}
-                  className={`ige-slider-dot ${currentSlide === index ? 'active' : ''}`}
-                  onClick={() => setCurrentSlide(index)}
+                  className={`ige-slider-dot ${currentIndex === index ? 'active' : ''}`}
+                  onClick={() => goToIndex(index)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Go to slide ${index + 1}`}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      goToIndex(index);
+                    }
+                  }}
                 />
+              ))}
+            </div>
+
+            {/* PDF Generate View: All Images */}
+            <div className={PDF_CLASSES.ONLY} style={{ width: '100%', marginTop: '20px' }}>
+              {webImages.map((img) => (
+                <div 
+                  key={img.id} 
+                  className={PDF_CLASSES.SEPARATE_PAGE} 
+                  style={{ 
+                    marginBottom: '40px', 
+                    pageBreakInside: 'avoid',
+                    breakInside: 'avoid'
+                  }}
+                >
+                  <h4 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '10px', color: '#333' }}>
+                    {img.label}
+                  </h4>
+                  <img 
+                    src={img.src} 
+                    alt={img.label} 
+                    style={{ 
+                      width: '100%', 
+                      height: 'auto', 
+                      borderRadius: '8px', 
+                      border: '1px solid #eee' 
+                    }} 
+                  />
+                </div>
               ))}
             </div>
           </section>
@@ -127,15 +152,15 @@ const IgESolution = () => {
       </div>
 
       {/* Fullscreen Modal */}
-      {isFullScreen && (
+      {isFullScreen && currentImage && (
         <div className="ige-fullscreen-modal" onClick={toggleFullScreen}>
           <div className="ige-fullscreen-hint">
-            ESC를 눌러 전체화면 보기를 끌 수 있습니다
+            {FULLSCREEN_HINTS.CLOSE}
           </div>
           <div className="ige-fullscreen-content">
             <img 
-              src={webImages[currentSlide].src} 
-              alt={webImages[currentSlide].label} 
+              src={currentImage.src} 
+              alt={currentImage.label} 
               className="ige-fullscreen-image"
             />
           </div>

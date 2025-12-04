@@ -250,11 +250,44 @@
 
 /* Mobile Metrics */
 @media (max-width: 768px) {
+  .naru-result-main-content {
+    padding: 40px 16px;
+  }
+
+  .naru-section-title {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .naru-section-title-sm {
+    font-size: clamp(20px, 6vw, 24px);
+  }
+
   .naru-metrics-grid {
     flex-direction: column;
     gap: 30px;
   }
   .naru-metric-divider {
     display: none;
+  }
+
+  .naru-metric-value {
+    font-size: 36px;
+  }
+
+  .naru-metric-unit {
+    font-size: 18px;
+  }
+
+  .naru-metric-label {
+    font-size: 14px;
+  }
+
+  .naru-metric-desc {
+    font-size: 13px;
+  }
+
+  .naru-learning-card {
+    height: auto;
+    min-height: 150px;
   }
 }

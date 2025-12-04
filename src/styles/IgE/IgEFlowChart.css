@@ -206,18 +206,45 @@
 
 @media (max-width: 768px) {
   .ige-flowchart-main {
-    padding: 20px 16px;
+    padding: 40px 16px;
+  }
+
+  .ige-flowchart-header {
+    margin-bottom: 40px;
   }
 
   .ige-header-title {
-    font-size: 28px;
+    font-size: clamp(24px, 7vw, 40px);
   }
   
   .ige-header-description {
-    font-size: 16px;
+    font-size: 14px;
   }
   
   .ige-section-title {
-    font-size: 22px;
+    font-size: clamp(20px, 6vw, 24px);
+  }
+
+  .ige-section-description {
+    font-size: 14px;
+  }
+
+  .ige-flowchart-image-container {
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  .ige-info-box {
+    padding: 20px;
+    margin-top: 24px;
+  }
+
+  .ige-info-title {
+    font-size: 14px;
+  }
+
+  .ige-info-list li {
+    font-size: 13px;
+    line-height: 1.6;
   }
 }

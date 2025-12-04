@@ -461,12 +461,40 @@
 
 /* Mobile Metrics */
 @media (max-width: 768px) {
+  .result-main-content {
+    padding: 40px 16px;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .section-title-sm {
+    font-size: clamp(20px, 6vw, 24px);
+  }
+
   .metrics-grid {
     flex-direction: column;
     gap: 30px;
   }
   .metric-divider {
     display: none;
+  }
+
+  .metric-value {
+    font-size: 36px;
+  }
+
+  .metric-unit {
+    font-size: 18px;
+  }
+
+  .metric-label {
+    font-size: 14px;
+  }
+
+  .metric-desc {
+    font-size: 13px;
   }
   
   .slider-container {
@@ -514,5 +542,10 @@
     white-space: normal;
     text-align: center;
     max-width: 90vw;
+  }
+
+  .learning-card {
+    height: auto;
+    min-height: 150px;
   }
 }

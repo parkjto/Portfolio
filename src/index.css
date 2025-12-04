@@ -24,10 +24,25 @@ body {
   min-height: 100vh;
   background: #ffffff;
   color: #0f172a;
+  overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 
 #root {
   width: 100%;
+  overflow-x: hidden; /* 가로 스크롤 방지 */
+}
+
+/* 기본 반응형 유틸리티 */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 작은 화면에서 텍스트 줄바꿈 개선 */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
 }
 
 a {
@@ -45,4 +60,46 @@ body.generating-pdf .pdf-only {
 
 body.generating-pdf .pdf-hidden {
   display: none !important;
+}
+
+/* PDF 페이지 분리 및 내용 보호 */
+body.generating-pdf section {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  page-break-after: always;
+  break-after: page;
+}
+
+body.generating-pdf .pdf-separate-page {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  page-break-after: avoid;
+  break-after: avoid;
+}
+
+/* PDF 생성 시 각 섹션이 한 페이지에 들어가도록 */
+body.generating-pdf .hero,
+body.generating-pdf .about-me,
+body.generating-pdf .project-index-container,
+body.generating-pdf #mybiz-overview,
+body.generating-pdf #mybiz-flowchart,
+body.generating-pdf #mybiz-problem,
+body.generating-pdf #mybiz-solution,
+body.generating-pdf #mybiz-result,
+body.generating-pdf #naru-overview,
+body.generating-pdf #naru-flowchart,
+body.generating-pdf #naru-problem,
+body.generating-pdf #naru-solution,
+body.generating-pdf #naru-result,
+body.generating-pdf #ige-overview,
+body.generating-pdf #ige-flowchart,
+body.generating-pdf #ige-problem,
+body.generating-pdf #ige-solution,
+body.generating-pdf #ige-learning,
+body.generating-pdf .closing {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  page-break-after: always;
+  break-after: page;
+  min-height: fit-content;
 }

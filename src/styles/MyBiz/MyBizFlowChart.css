@@ -230,18 +230,50 @@
 
 @media (max-width: 768px) {
   .mybiz-flowchart-main {
-    padding: 20px 16px;
+    padding: 40px 16px;
+  }
+
+  .mybiz-flowchart-header {
+    margin-bottom: 40px;
   }
 
   .mybiz-header-title {
-    font-size: 28px;
+    font-size: clamp(24px, 7vw, 40px);
   }
 
   .mybiz-header-description {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .mybiz-section-title {
-    font-size: 22px;
+    font-size: clamp(20px, 6vw, 24px);
+  }
+
+  .mybiz-section-description {
+    font-size: 14px;
+  }
+
+  .mybiz-pipeline-image-container {
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  .mybiz-flowchart-image-container {
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  .mybiz-info-box {
+    padding: 20px;
+    margin-top: 24px;
+  }
+
+  .mybiz-info-title {
+    font-size: 14px;
+  }
+
+  .mybiz-info-list li {
+    font-size: 13px;
+    line-height: 1.6;
   }
 }

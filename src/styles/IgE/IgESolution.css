@@ -304,6 +304,39 @@
 }
 
 @media (max-width: 768px) {
+  .ige-main-content {
+    padding: 40px 16px;
+    gap: 40px;
+  }
+
+  .hero-heading {
+    font-size: clamp(28px, 8vw, 48px);
+  }
+
+  .solution-grid {
+    gap: 24px;
+  }
+
+  .solution-card {
+    padding: 24px;
+  }
+
+  .solution-title {
+    font-size: 18px;
+  }
+
+  .solution-desc {
+    font-size: 14px;
+  }
+
+  .ige-slider-container {
+    width: 100%;
+  }
+
+  .ige-slider-image {
+    max-height: 300px;
+  }
+
   .ige-slider-btn {
     top: 50%;
     transform: translateY(-50%);

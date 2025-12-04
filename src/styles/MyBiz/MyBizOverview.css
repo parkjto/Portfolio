@@ -246,18 +246,75 @@
 }
 
 @media (max-width: 768px) {
-  /* .mybiz-overview-container padding removed already */
+  .mybiz-overview-container {
+    padding: 0;
+  }
+
+  .mybiz-main-content-area {
+    padding: 40px 16px;
+    gap: 40px;
+  }
+
+  .mybiz-overview-section {
+    gap: 30px;
+  }
 
   .mybiz-project-overview-title {
-    font-size: 32px;
+    font-size: clamp(28px, 8vw, 48px);
   }
 
   .mybiz-project-subtitle {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .mybiz-hero-info-grid {
     flex-direction: column;
     gap: 24px;
+    padding: 20px 0;
+  }
+
+  .mybiz-info-item {
+    gap: 8px;
+  }
+
+  .mybiz-info-label {
+    font-size: 12px;
+  }
+
+  .mybiz-info-primary {
+    font-size: 14px;
+  }
+
+  .mybiz-info-secondary {
+    font-size: 12px;
+  }
+
+  .mybiz-project-detail-grid {
+    gap: 30px;
+  }
+
+  .mybiz-block-title {
+    font-size: 16px;
+  }
+
+  .mybiz-goal-text {
+    font-size: 16px;
+  }
+
+  .mybiz-contrib-title {
+    font-size: 18px;
+  }
+
+  .mybiz-contrib-desc {
+    font-size: 14px;
+  }
+
+  .mybiz-badge-group {
+    gap: 6px;
+  }
+
+  .mybiz-overview-badge {
+    font-size: 11px;
+    padding: 4px 10px;
   }
 }

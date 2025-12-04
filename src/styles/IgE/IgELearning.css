@@ -187,3 +187,36 @@
     padding: 24px;
   }
 }
+
+@media (max-width: 768px) {
+  .ige-learning-content {
+    padding: 40px 16px;
+    gap: 30px;
+  }
+
+  .hero-heading {
+    font-size: clamp(24px, 7vw, 42px);
+  }
+
+  .learning-grid {
+    gap: 20px;
+  }
+
+  .learning-card {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .card-desc {
+    font-size: 14px;
+  }
+
+  .lesson-item {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+}

@@ -1,6 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../../styles/MyBiz/MyBizSolution.css';
 import MyBizSidebar from './MyBizSidebar';
+import { useSlider } from '../../hooks/useSlider';
+import { useFullScreen } from '../../hooks/useFullScreen';
+import { FULLSCREEN_HINTS, PDF_CLASSES } from '../../utils/constants';
+import { padNumber, safeGet } from '../../utils/helpers';
 import fullscreenIcon from '../../assets/icons/fullscreen_icon.svg';
 import navImage from '../../assets/image/MyBiz/MyBizNav.png';
 import salesImage from '../../assets/image/MyBiz/MyBizMSalesAnalyze.png';
@@ -68,48 +72,17 @@ const mobileScreens = [
 ];
 
 const MyBizSolution = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isFullScreen, setIsFullScreen] = useState(false);
+  const { currentIndex, goNext, goPrev, goToIndex, getSlideClass } = useSlider(mobileScreens.length);
+  const { isFullScreen, toggleFullScreen } = useFullScreen();
 
-  const total = mobileScreens.length;
-
-  const goNext = () => {
-    setCurrentIndex((prev) => (prev === total - 1 ? 0 : prev + 1));
+  const slideClassNames = {
+    active: 'mobile-slide-active',
+    prev: 'mobile-slide-prev',
+    next: 'mobile-slide-next',
+    hidden: 'mobile-slide-hidden',
   };
 
-  const goPrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
-  };
-
-  const getSlideClass = (index) => {
-    if (index === currentIndex) return 'mobile-slide-active';
-    const prevIndex = currentIndex === 0 ? total - 1 : currentIndex - 1;
-    const nextIndex = currentIndex === total - 1 ? 0 : currentIndex + 1;
-
-    if (index === prevIndex) return 'mobile-slide-prev';
-    if (index === nextIndex) return 'mobile-slide-next';
-    return 'mobile-slide-hidden';
-  };
-
-  const toggleFullScreen = () => {
-    setIsFullScreen((prev) => !prev);
-  };
-
-  // ESC 키로 전체화면 닫기
-  useEffect(() => {
-    if (!isFullScreen) return;
-
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape' || event.key === 'Esc') {
-        setIsFullScreen(false);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isFullScreen]);
+  const getSlideClassName = (index) => getSlideClass(index, slideClassNames);
 
   return (
     <section id="mybiz-solution" className="mobile-showcase-container">
@@ -133,7 +106,7 @@ const MyBizSolution = () => {
             </p>
           </header>
 
-          <div className="mobile-slider">
+          <div className={`mobile-slider ${PDF_CLASSES.HIDDEN}`}>
             <button
               className="mobile-slider-btn prev"
               type="button"
@@ -147,13 +120,13 @@ const MyBizSolution = () => {
               {mobileScreens.map((screen, index) => (
                 <article
                   key={screen.id}
-                  className={`mobile-card mobile-slide ${getSlideClass(index)}`}
+                  className={`mobile-card mobile-slide ${getSlideClassName(index)}`}
                 >
                   <div className="mobile-card-inner">
                     <div className="mobile-card-text">
                       <div className="mobile-card-label-row">
                         <span className="mobile-card-index">
-                          {screen.id.toString().padStart(2, '0')}
+                          {padNumber(screen.id)}
                         </span>
                         <span className="mobile-card-chip">{screen.tag}</span>
                       </div>
@@ -310,60 +283,186 @@ const MyBizSolution = () => {
               ›
             </button>
 
-            <div className="slider-dots">
+            <div className={`slider-dots ${PDF_CLASSES.HIDDEN}`}>
               {mobileScreens.map((screen, index) => (
                 <div
                   key={screen.id}
-                  className={`slider-dot ${
-                    index === currentIndex ? 'active' : ''
-                  }`}
-                  onClick={() => setCurrentIndex(index)}
+                  className={`slider-dot ${index === currentIndex ? 'active' : ''}`}
+                  onClick={() => goToIndex(index)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Go to slide ${index + 1}`}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      goToIndex(index);
+                    }
+                  }}
                 />
               ))}
             </div>
           </div>
+
+          {/* PDF Generate View: All Cards Expanded */}
+          <div className={PDF_CLASSES.ONLY} style={{ width: '100%', marginTop: '20px' }}>
+            {mobileScreens.map((screen) => (
+              <div 
+                key={screen.id} 
+                className={PDF_CLASSES.SEPARATE_PAGE} 
+                style={{ 
+                  marginBottom: '40px', 
+                  pageBreakInside: 'avoid',
+                  breakInside: 'avoid'
+                }}
+              >
+                <article className="mobile-card" style={{ 
+                  display: 'block',
+                  opacity: 1,
+                  transform: 'none',
+                  position: 'relative',
+                  width: '100%',
+                  margin: '0 auto'
+                }}>
+                  <div className="mobile-card-inner">
+                    <div className="mobile-card-text">
+                      <div className="mobile-card-label-row">
+                        <span className="mobile-card-index">
+                          {padNumber(screen.id)}
+                        </span>
+                        <span className="mobile-card-chip">{screen.tag}</span>
+                      </div>
+                      <h3 className="mobile-card-title">
+                        <span className="mobile-card-title-label">{screen.label}</span>
+                        {screen.title}
+                      </h3>
+                      <p className="mobile-card-subtitle">{screen.subtitle}</p>
+                      <p className="mobile-card-description">{screen.description}</p>
+                    </div>
+
+                    <div className="mobile-card-phone">
+                      {screen.id === 1 ? (
+                        <div className="mobile-screen-image-wrapper">
+                          <img 
+                            src={mainImage} 
+                            alt={screen.title} 
+                            className="mobile-screen-image"
+                          />
+                        </div>
+                      ) : screen.id === 2 ? (
+                        <div className="mobile-screen-image-wrapper">
+                          <img 
+                            src={chatImage} 
+                            alt={screen.title} 
+                            className="mobile-screen-image"
+                          />
+                        </div>
+                      ) : screen.id === 3 ? (
+                        <div className="mobile-screen-image-wrapper">
+                          <img 
+                            src={salesImage} 
+                            alt={screen.title} 
+                            className="mobile-screen-image"
+                          />
+                        </div>
+                      ) : screen.id === 4 ? (
+                        <div className="mobile-screen-image-wrapper mobile-screen-scrollable">
+                          <div className="mobile-screen-scroll-container">
+                            <img 
+                              src={reviewImage} 
+                              alt={screen.title} 
+                              className="mobile-screen-image mobile-screen-scroll-image"
+                            />
+                          </div>
+                        </div>
+                      ) : screen.id === 5 ? (
+                        <div className="mobile-screen-image-wrapper mobile-screen-scrollable">
+                          <div className="mobile-screen-scroll-container">
+                            <img 
+                              src={govImage} 
+                              alt={screen.title} 
+                              className="mobile-screen-image mobile-screen-scroll-image"
+                            />
+                          </div>
+                        </div>
+                      ) : screen.id === 6 ? (
+                        <div className="mobile-screen-image-wrapper">
+                          <img 
+                            src={adImage} 
+                            alt={screen.title} 
+                            className="mobile-screen-image"
+                          />
+                        </div>
+                      ) : (
+                        <div className="phone-frame">
+                          <div className="phone-notch" />
+                          <div className="phone-screen-placeholder">
+                            <span className="placeholder-label">
+                              IMAGE / GIF / VIDEO
+                            </span>
+                            <span className="placeholder-sub">
+                              실제 포트폴리오에서는
+                              <br />
+                              해당 화면 캡처 또는 프로토타입 영상을 삽입합니다.
+                            </span>
+                            <img 
+                              src={navImage} 
+                              alt="Bottom Navigation" 
+                              className="phone-bottom-nav"
+                            />
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </article>
+              </div>
+            ))}
+          </div>
         </main>
       </div>
-      {isFullScreen && (
-        <div className="fullscreen-modal" onClick={toggleFullScreen}>
-          <div className="fullscreen-hint">
-            ESC를 눌러 전체화면 보기를 끌 수 있습니다
-          </div>
-          <div className="fullscreen-content">
-            {mobileScreens[currentIndex].id === 1 ? (
+      {isFullScreen && (() => {
+        const currentScreen = safeGet(mobileScreens, currentIndex);
+        if (!currentScreen) return null;
+        
+        return (
+          <div className="fullscreen-modal" onClick={toggleFullScreen}>
+            <div className="fullscreen-hint">
+              {FULLSCREEN_HINTS.CLOSE}
+            </div>
+            <div className="fullscreen-content">
+              {currentScreen.id === 1 ? (
               <img 
                 src={mainImage} 
                 alt={mobileScreens[currentIndex].title} 
                 className="fullscreen-image"
               />
-            ) : mobileScreens[currentIndex].id === 2 ? (
+            ) : currentScreen.id === 2 ? (
               <img 
                 src={chatImage} 
-                alt={mobileScreens[currentIndex].title} 
+                alt={currentScreen.title} 
                 className="fullscreen-image"
               />
-            ) : mobileScreens[currentIndex].id === 3 ? (
+            ) : currentScreen.id === 3 ? (
               <img 
                 src={salesImage} 
-                alt={mobileScreens[currentIndex].title} 
+                alt={currentScreen.title} 
                 className="fullscreen-image"
               />
-            ) : mobileScreens[currentIndex].id === 4 ? (
+            ) : currentScreen.id === 4 ? (
               <img 
                 src={reviewImage} 
-                alt={mobileScreens[currentIndex].title} 
+                alt={currentScreen.title} 
                 className="fullscreen-image"
               />
-            ) : mobileScreens[currentIndex].id === 5 ? (
+            ) : currentScreen.id === 5 ? (
               <img 
                 src={govImage} 
-                alt={mobileScreens[currentIndex].title} 
+                alt={currentScreen.title} 
                 className="fullscreen-image"
               />
-            ) : mobileScreens[currentIndex].id === 6 ? (
+            ) : currentScreen.id === 6 ? (
               <img 
                 src={adImage} 
-                alt={mobileScreens[currentIndex].title} 
+                alt={currentScreen.title} 
                 className="fullscreen-image"
               />
             ) : (
@@ -388,7 +487,8 @@ const MyBizSolution = () => {
             )}
           </div>
         </div>
-      )}
+        );
+      })()}
     </section>
   );
 };

@@ -1,66 +1,111 @@
-import React from "react";
+import React, { useState } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import "../styles/Aboutme_style.css";
 import resumePdf from "../assets/Resume_ParkJunYeop.pdf";
 
 export const AboutMe = () => {
+  const [isDownloading, setIsDownloading] = useState(false);
+
   const handleDownloadPortfolio = async () => {
+    if (isDownloading) return; // 이미 다운로드 중이면 중복 실행 방지
+    
+    // 현재 스크롤 위치 저장 (finally 블록에서 사용하기 위해 외부에 선언)
+    let originalScrollX = 0;
+    let originalScrollY = 0;
+    
     try {
+      setIsDownloading(true);
+      
+      // 현재 스크롤 위치 저장
+      originalScrollX = window.scrollX || window.pageXOffset || document.documentElement.scrollLeft;
+      originalScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+      
       // PDF 생성 모드 활성화 (슬라이더 펼치기 등)
       document.body.classList.add('generating-pdf');
       
       // 스타일 변경이 렌더링에 반영되도록 잠시 대기
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
-      // 페이지를 맨 위로 스크롤
-      window.scrollTo(0, 0);
+      await new Promise(resolve => setTimeout(resolve, 1500));
       
-      // 전체 페이지를 캡처하기 위해 #root 요소 사용
-      const element = document.getElementById('root');
-      if (!element) {
-        throw new Error('Root element not found');
-      }
-
-      // 전체 페이지 높이 계산
-      const fullHeight = Math.max(
-        document.body.scrollHeight,
-        document.body.offsetHeight,
-        document.documentElement.clientHeight,
-        document.documentElement.scrollHeight,
-        document.documentElement.offsetHeight
-      );
-
-      const canvas = await html2canvas(element, {
-        scale: 2,
-        useCORS: true,
-        allowTaint: true,
-        scrollX: 0,
-        scrollY: 0,
-        windowWidth: document.documentElement.scrollWidth,
-        height: fullHeight,
-        width: document.documentElement.scrollWidth,
-        backgroundColor: '#ffffff'
-      });
-
-      const imgData = canvas.toDataURL("image/png");
-      const pdfWidth = 297; // A4 landscape width in mm
-      const pdfHeight = 210; // A4 landscape height in mm
-      const imgWidth = pdfWidth;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      let heightLeft = imgHeight;
-      let position = 0;
+      // 각 섹션을 개별적으로 캡처하기 위한 섹션 선택자 목록 (순서대로)
+      const sectionSelectors = [
+        '.hero', // PortfolioHero
+        '.about-me', // AboutMe
+        '.project-index-container', // ProjectIndex
+        '#mybiz-overview', // MyBizOverview
+        '#mybiz-flowchart', // MyBizFlowChart
+        '#mybiz-problem', // MyBizProblem
+        '#mybiz-solution', // MyBizSolution
+        '#mybiz-result', // MyBizResult
+        '#naru-overview', // NaruOverview
+        '#naru-flowchart', // NaruFlowChart
+        '#naru-problem', // NaruProblem
+        '#naru-solution', // NaruSolution
+        '#naru-result', // NaruResult
+        '#ige-overview', // IgEOverview
+        '#ige-flowchart', // IgEFlowChart
+        '#ige-problem', // IgEProblem
+        '#ige-solution', // IgESolution
+        '#ige-learning', // IgELearning
+        '.closing', // Closing
+      ];
 
       const doc = new jsPDF("l", "mm", "a4"); // "l" for landscape
+      const pdfWidth = 297; // A4 landscape width in mm
+      const pdfHeight = 210; // A4 landscape height in mm
 
-      doc.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-      heightLeft -= pdfHeight;
+      // 각 섹션을 순차적으로 처리
+      for (let i = 0; i < sectionSelectors.length; i++) {
+        const selector = sectionSelectors[i];
+        let element = document.querySelector(selector);
+        
+        if (!element) {
+          console.warn(`Section not found: ${selector}`);
+          continue; // 섹션을 찾을 수 없으면 건너뛰기
+        }
 
-      while (heightLeft > 0) {
-        position = heightLeft - imgHeight;
-        doc.addPage();
-        doc.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-        heightLeft -= pdfHeight;
+        // html2canvas 옵션 설정 (스크롤 없이 요소의 절대 위치로 캡처)
+        const canvas = await html2canvas(element, {
+          scale: 2,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: '#ffffff',
+          logging: false,
+          scrollX: 0,
+          scrollY: 0,
+          windowWidth: document.documentElement.scrollWidth,
+          windowHeight: document.documentElement.scrollHeight,
+        });
+
+        const imgData = canvas.toDataURL("image/png");
+        const imgWidth = pdfWidth;
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+        // 각 섹션을 새 페이지에 추가 (첫 번째 섹션 제외)
+        if (i > 0) {
+          doc.addPage();
+        }
+
+        // 이미지가 한 페이지를 초과하는 경우 처리
+        if (imgHeight <= pdfHeight) {
+          // 한 페이지에 들어가는 경우
+          doc.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+        } else {
+          // 여러 페이지에 걸치는 경우 - 첫 페이지 추가
+          let heightLeft = imgHeight;
+          let position = 0;
+          
+          doc.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+          heightLeft -= pdfHeight;
+
+          // 나머지 페이지 추가
+          while (heightLeft > 0) {
+            position = heightLeft - imgHeight;
+            doc.addPage();
+            doc.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+            heightLeft -= pdfHeight;
+          }
+        }
       }
 
       doc.save("ParkJunYeop_Portfolio.pdf");
@@ -70,6 +115,11 @@ export const AboutMe = () => {
     } finally {
       // PDF 생성 모드 비활성화 (원래대로 복귀)
       document.body.classList.remove('generating-pdf');
+      
+      // 원래 스크롤 위치로 복원
+      window.scrollTo(originalScrollX, originalScrollY);
+      
+      setIsDownloading(false);
     }
   };
 
@@ -85,8 +135,12 @@ export const AboutMe = () => {
               <a href={resumePdf} download="박준엽_이력서.pdf" className="resume-download">
                 이력서 다운
               </a>
-              <button onClick={handleDownloadPortfolio} className="portfolio-download">
-                포트폴리오 다운
+              <button 
+                onClick={handleDownloadPortfolio} 
+                className="portfolio-download"
+                disabled={isDownloading}
+              >
+                {isDownloading ? '다운로드 중...' : '포트폴리오 다운'}
               </button>
             </div>
           </div>

@@ -48,6 +48,49 @@ flex-grow: 0;
     padding: 40px 20px;
     min-height: auto;
   }
+
+  .header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .download-buttons {
+    margin-left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .resume-download,
+  .portfolio-download {
+    width: 100%;
+    justify-content: center;
+    padding: 8px 0;
+  }
+
+  .page-title {
+    font-size: 20px;
+  }
+
+  .intro-text {
+    font-size: 24px;
+    line-height: 1.4;
+    white-space: normal;
+  }
+
+  .Aboutme-section-title {
+    font-size: 20px;
+  }
+
+  .body-text {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .skill-category-title {
+    font-size: 18px;
+  }
 }
 
 /* 메인 컨텐츠 래퍼 */
@@ -96,6 +139,8 @@ flex-grow: 0;
   display: flex;
   align-items: center;
   width: 100%;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .page-title {
@@ -136,6 +181,17 @@ flex-grow: 0;
   color: #666666;
 }
 
+.portfolio-download:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+.portfolio-download:disabled:hover {
+  text-decoration: none;
+  color: #999999;
+}
+
 .intro-text {
   width: 100%;
   max-width: 653px;
@@ -146,7 +202,7 @@ flex-grow: 0;
   line-height: 28px;
   letter-spacing: -0.449219px;
   margin: 0;
-  white-space: nowrap;
+  white-space: normal; /* 모바일에서 줄바꿈 허용 */
 }
 
 @media (max-width: 767px) {
@@ -328,5 +384,21 @@ flex-grow: 0;
 
   .work-style-desc .body-text {
     width: 444px; /* 원본의 width 제한 유지 */
+  }
+}
+
+/* 태블릿 중간 크기 (768px ~ 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .header-row {
+    flex-wrap: wrap;
+  }
+
+  .download-buttons {
+    margin-left: auto;
   }
 }

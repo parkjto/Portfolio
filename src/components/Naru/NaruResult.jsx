@@ -1,47 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../../styles/Naru/NaruResult.css';
 import NaruSidebar from './NaruSidebar';
 import trophyIcon from '../../assets/icons/trophy-icon.svg';
-// 디자인 이미지가 없다면 Placeholder를 사용하거나 기존 이미지를 재활용합니다.
-// 예시로 MyBiz 이미지를 주석 처리하고 Placeholder 텍스트를 사용합니다.
-import designImage1 from '../../assets/image/Naru/Naruindex.png'; // 임시 이미지
-
-const NaruResult = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isFullScreen, setIsFullScreen] = useState(false);
-
-  const designImages = [
-    { id: 1, src: designImage1, label: 'Main & Search UI' },
-    // 추가 이미지가 있다면 여기에 등록
-  ];
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === designImages.length - 1 ? 0 : prev + 1));
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? designImages.length - 1 : prev - 1));
-  };
-  
-  const toggleFullScreen = () => {
-    setIsFullScreen(!isFullScreen);
-  };
-
-  // ESC 키로 전체화면 닫기
-  useEffect(() => {
-    if (!isFullScreen) return;
-
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape' || event.key === 'Esc') {
-        setIsFullScreen(false);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isFullScreen]);
 
   return (
     <div id="naru-result" className="naru-result-container">

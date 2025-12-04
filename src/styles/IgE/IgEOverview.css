@@ -212,16 +212,75 @@
 }
 
 @media (max-width: 768px) {
+  .ige-overview-container {
+    padding: 0;
+  }
+
+  .ige-main-content-area {
+    padding: 40px 16px;
+    gap: 40px;
+  }
+
+  .ige-overview-section {
+    gap: 30px;
+  }
+
   .ige-project-overview-title {
-    font-size: 32px;
+    font-size: clamp(28px, 8vw, 48px);
   }
 
   .ige-project-subtitle {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .ige-hero-info-grid {
     flex-direction: column;
     gap: 24px;
+    padding: 20px 0;
+  }
+
+  .ige-info-item {
+    gap: 8px;
+  }
+
+  .ige-info-label {
+    font-size: 12px;
+  }
+
+  .ige-info-primary {
+    font-size: 14px;
+  }
+
+  .ige-info-secondary {
+    font-size: 12px;
+  }
+
+  .ige-project-detail-grid {
+    gap: 30px;
+  }
+
+  .ige-block-title {
+    font-size: 16px;
+  }
+
+  .ige-goal-text {
+    font-size: 16px;
+  }
+
+  .ige-contrib-title {
+    font-size: 18px;
+  }
+
+  .ige-contrib-desc {
+    font-size: 14px;
+  }
+
+  .ige-badge-group {
+    gap: 6px;
+  }
+
+  .ige-overview-badge {
+    font-size: 11px;
+    padding: 4px 10px;
   }
 }
