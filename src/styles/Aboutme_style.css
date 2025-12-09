@@ -197,18 +197,19 @@ flex-grow: 0;
   max-width: 653px;
   color: #111827;
   font-family: var(--font-pretendard-bold);
-  font-size: 36px;
+  font-size: clamp(18px, 5vw, 32px);
   font-weight: 700;
-  line-height: 28px;
+  line-height: 1.2;
   letter-spacing: -0.449219px;
   margin: 0;
-  white-space: normal; /* 모바일에서 줄바꿈 허용 */
+  white-space: nowrap;
 }
 
 @media (max-width: 767px) {
   .intro-text {
-    font-size: 24px;
-    line-height: 1.4;
+    font-size: clamp(18px, 5vw, 28px);
+    line-height: 1.2;
+    white-space: nowrap;
   }
 }
 

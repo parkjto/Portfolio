@@ -132,9 +132,11 @@ export const AboutMe = () => {
           <div className="header-row">
             <div className="page-title">About Me</div>
             <div className="download-buttons">
+              {/* 이력서 다운로드 임시 비활성화
               <a href={resumePdf} download="박준엽_이력서.pdf" className="resume-download">
                 이력서 다운
               </a>
+              */}
               <button 
                 onClick={handleDownloadPortfolio} 
                 className="portfolio-download"
@@ -145,7 +147,7 @@ export const AboutMe = () => {
             </div>
           </div>
           <div className="header-row">
-            <div className="intro-text">안녕하세요 디자인과 개발을 하는 박준엽 입니다</div>
+            <div className="intro-text">안녕하세요, 디자인의 디테일을 아는 개발자 박준엽입니다.</div>
           </div>
         </div>
 

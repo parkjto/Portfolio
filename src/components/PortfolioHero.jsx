@@ -4,10 +4,7 @@ import '../styles/PortfolioHero.css'
 const heroContent = {
   badge: 'Portfolio',
   title: (
-    <>
-      디자인과 구현의 경계를 허무는 프로덕트 디자이너<br />
-      박준엽
-    </>
+    <>디자인 감각을 코드로 증명하는 개발자 박준엽</>
   ),
 }
 
