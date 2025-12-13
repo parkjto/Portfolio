@@ -1,11 +1,13 @@
 .ige-problem-wrapper {
   width: 100%;
+  min-height: 100vh; /* 한 화면을 가득 채우도록 높이 확보 */
   background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
   box-sizing: border-box;
+  padding-bottom: 80px; /* 하단 여백 통일 */
 }
 
 /* Wrapper to constrain max width and align with sidebar */
@@ -19,19 +21,21 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 120px;
+  gap: 80px; /* 다른 섹션과 유사하게 간격 축소 */
   padding: 80px 100px;
-  /* max-width removed here to fill the flex container space properly */
+  width: 100%;
+  max-width: 1200px; /* 과도한 확장을 방지하며 넓게 채움 */
+  margin: 0 auto;
 }
 
 /* Hero Section */
-.problem-hero {
+.ige-problem-hero {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.section-label {
+.ige-section-label {
   font-size: 16px;
   font-weight: 700;
   color: #4C4CFF; /* IgE Color */
@@ -39,7 +43,7 @@
   letter-spacing: 1px;
 }
 
-.hero-heading {
+.ige-hero-heading {
   font-size: 48px;
   font-weight: 700;
   color: #111827;
@@ -48,26 +52,26 @@
 }
 
 /* Discovery Section */
-.discovery-section {
+.ige-discovery-section {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-.problem-section-title {
+.ige-problem-section-title {
   font-size: 32px;
   font-weight: 700;
   color: #111827;
   margin: 0;
 }
 
-.discovery-grid {
+.ige-discovery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-.discovery-card {
+.ige-discovery-card {
   background-color: #f9fafb;
   border-radius: 16px;
   padding: 32px;
@@ -76,26 +80,26 @@
   gap: 16px;
 }
 
-.discovery-number {
+.ige-discovery-number {
   font-size: 24px;
   font-weight: 900;
   color: #e5e7eb;
 }
 
-.discovery-divider {
+.ige-discovery-divider {
   width: 40px;
   height: 2px;
   background-color: #4C4CFF; /* IgE Color */
 }
 
-.discovery-title {
+.ige-discovery-title {
   font-size: 20px;
   font-weight: 700;
   color: #111827;
   margin: 0;
 }
 
-.discovery-body {
+.ige-discovery-body {
   font-size: 16px;
   line-height: 1.6;
   color: #4b5563;
@@ -103,19 +107,19 @@
 }
 
 /* Pain Section */
-.pain-section {
+.ige-pain-section {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-.pain-grid {
+.ige-pain-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-.pain-card {
+.ige-pain-card {
   border: 1px solid #e5e7eb;
   border-radius: 16px;
   padding: 32px;
@@ -125,11 +129,11 @@
   transition: box-shadow 0.2s ease;
 }
 
-.pain-card:hover {
+.ige-pain-card:hover {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-.pain-icon-wrapper {
+.ige-pain-icon-wrapper {
   width: 48px;
   height: 48px;
   border-radius: 12px;
@@ -140,20 +144,20 @@
   justify-content: center;
 }
 
-.pain-content-inner {
+.ige-pain-content-inner {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.pain-title {
+.ige-pain-title {
   font-size: 20px;
   font-weight: 700;
   color: #111827;
   margin: 0;
 }
 
-.pain-label {
+.ige-pain-label {
   font-size: 14px;
   font-weight: 500;
   color: #9ca3af;
@@ -161,7 +165,7 @@
   letter-spacing: 0.5px;
 }
 
-.pain-body {
+.ige-pain-body {
   font-size: 16px;
   line-height: 1.6;
   color: #4b5563;
@@ -176,10 +180,10 @@
   
   .ige-main-content {
     padding: 40px 20px;
-    gap: 80px;
+    gap: 60px;
   }
   
-  .discovery-grid, .pain-grid {
+  .ige-discovery-grid, .ige-pain-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -187,53 +191,53 @@
 @media (max-width: 768px) {
   .ige-main-content {
     padding: 40px 16px;
-    gap: 60px;
+    gap: 50px;
   }
 
-  .hero-heading {
+  .ige-hero-heading {
     font-size: clamp(28px, 8vw, 48px);
   }
 
-  .problem-section-title {
+  .ige-problem-section-title {
     font-size: clamp(24px, 6vw, 32px);
   }
 
-  .discovery-grid {
+  .ige-discovery-grid {
     gap: 20px;
   }
 
-  .discovery-card {
+  .ige-discovery-card {
     padding: 24px;
     gap: 12px;
   }
 
-  .discovery-title {
+  .ige-discovery-title {
     font-size: 18px;
   }
 
-  .discovery-body {
+  .ige-discovery-body {
     font-size: 14px;
   }
 
-  .pain-grid {
+  .ige-pain-grid {
     gap: 20px;
   }
 
-  .pain-card {
+  .ige-pain-card {
     padding: 24px;
     gap: 20px;
   }
 
-  .pain-icon-wrapper {
+  .ige-pain-icon-wrapper {
     width: 40px;
     height: 40px;
   }
 
-  .pain-title {
+  .ige-pain-title {
     font-size: 18px;
   }
 
-  .pain-body {
+  .ige-pain-body {
     font-size: 14px;
   }
 }

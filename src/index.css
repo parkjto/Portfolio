@@ -50,6 +50,20 @@ a {
 }
 
 /* PDF Generation Utilities */
+
+/* 
+ * 화면상에서는 보이지 않지만 PDF 생성 시에만 적용되어야 하는 스타일입니다.
+ * 하지만 html2canvas는 현재 화면에 렌더링된 요소를 캡처하므로,
+ * '화면에 보이되 사용자에게는 보이지 않는' 상태(예: 오버레이나 보이지 않는 영역 등)로 처리해야 합니다.
+ * 여기서는 PDF 생성 중(.generating-pdf)일 때 해당 요소들을 화면 밖으로 밀어내거나 
+ * 덮개를 씌우는 등의 방식 대신,
+ * html2canvas 캡처 시점에만 스타일을 변경하고 다시 복구하는 방식을 사용합니다.
+ * 
+ * 단, 사용자 요구사항: "다운할때 화면이 바뀌는게 보이면 안됨"
+ * -> 이를 위해 PDF 생성용 복제본을 만들어서 캡처하거나,
+ *    사용자가 보고 있는 화면 위를 덮는 Loading Overlay를 사용하여 깜빡임을 가려야 합니다.
+ */
+
 .pdf-only {
   display: none !important;
 }
@@ -60,6 +74,47 @@ body.generating-pdf .pdf-only {
 
 body.generating-pdf .pdf-hidden {
   display: none !important;
+}
+
+/* PDF Loading Overlay */
+#pdf-loading-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.98);
+  z-index: 99999;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+body.generating-pdf #pdf-loading-overlay {
+  display: flex;
+}
+
+.pdf-loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+.pdf-loading-text {
+  font-family: 'Pretendard', sans-serif;
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* PDF 페이지 분리 및 내용 보호 */

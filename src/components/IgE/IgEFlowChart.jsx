@@ -33,8 +33,7 @@ const IgEFlowChart = () => {
               <img 
                 src={igeFlowChart1} 
                 alt="시스템 아키텍처" 
-                className="ige-flowchart-image"
-                style={{ width: '170%' }}
+                className="ige-flowchart-image ige-wide-image"
               />
             </div>
             <div className="ige-info-box">

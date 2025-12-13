@@ -22,13 +22,13 @@
   padding: 80px 100px;
 }
 
-.solution-hero {
+.ige-solution-hero {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.section-label {
+.ige-section-label {
   font-size: 12px;
   font-weight: 700;
   color: #4C4CFF;
@@ -36,7 +36,7 @@
   letter-spacing: 0.1em;
 }
 
-.hero-heading {
+.ige-hero-heading {
   font-size: 48px;
   font-weight: 700;
   color: #111827;
@@ -44,7 +44,7 @@
   margin: 0;
 }
 
-.highlight-text {
+.ige-highlight-text {
   color: #4C4CFF;
 }
 
@@ -241,13 +241,13 @@
 }
 
 /* Grid Section */
-.solution-grid {
+.ige-solution-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
 }
 
-.solution-card {
+.ige-solution-card {
   background: white;
   padding: 32px;
   border-radius: 24px;
@@ -257,14 +257,14 @@
   gap: 16px;
 }
 
-.solution-title {
+.ige-solution-title {
   font-size: 20px;
   font-weight: 700;
   color: #111827;
   margin: 0;
 }
 
-.solution-desc {
+.ige-solution-desc {
   font-size: 15px;
   line-height: 1.6;
   color: #4b5563;
@@ -276,7 +276,7 @@
       flex-direction: column;
   }
   
-  .solution-grid {
+  .ige-solution-grid {
     grid-template-columns: 1fr;
   }
 
@@ -313,19 +313,19 @@
     font-size: clamp(28px, 8vw, 48px);
   }
 
-  .solution-grid {
+  .ige-solution-grid {
     gap: 24px;
   }
 
-  .solution-card {
+  .ige-solution-card {
     padding: 24px;
   }
 
-  .solution-title {
+  .ige-solution-title {
     font-size: 18px;
   }
 
-  .solution-desc {
+  .ige-solution-desc {
     font-size: 14px;
   }
 

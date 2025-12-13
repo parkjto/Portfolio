@@ -31,14 +31,13 @@ const NaruFlowChart = () => {
             <p className="naru-section-description">
               Client - Server - Database - External API 간의 데이터 흐름 구조
             </p>
-            <div className="naru-flowchart-image-container" style={{ display: 'flex', justifyContent: 'center', overflow: 'hidden' }}>
-                <img 
-                  src={naruFlowChart2} 
-                  alt="시스템 아키텍처" 
-                  className="naru-flowchart-image"
-                  style={{ width: '80%', height: 'auto' }}
-                />
-                </div>
+            <div className="naru-flowchart-image-container">
+              <img 
+                src={naruFlowChart2} 
+                alt="시스템 아키텍처" 
+                className="naru-flowchart-image"
+              />
+            </div>
             <div className="naru-info-box">
               <h4 className="naru-info-title">Architecture Highlights</h4>
               <ul className="naru-info-list">
@@ -56,12 +55,11 @@ const NaruFlowChart = () => {
           앱 실행부터 핵심 기능 사용까지의 사용자 경험 흐름
         </p>
         <div className="naru-pipeline-image-container">
-            <img 
-              src={naruFlowChart1} 
-              alt="사용자 플로우" 
-              className="naru-pipeline-image"
-              style={{ width: '150%' }}
-            />
+          <img 
+            src={naruFlowChart1} 
+            alt="사용자 플로우" 
+            className="naru-pipeline-image"
+          />
         </div>
           <div className="naru-info-box">
               <h4 className="naru-info-title">UX Highlights</h4>

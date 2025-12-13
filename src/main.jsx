@@ -48,6 +48,13 @@ createRoot(document.getElementById('root')).render(
       <IgELearning />
 
       <Closing />
+      
+      {/* PDF Loading Overlay - Added for hiding UI changes during PDF generation */}
+      <div id="pdf-loading-overlay">
+        <div className="pdf-loader"></div>
+        <div className="pdf-loading-text">PDF 생성 중입니다...</div>
+        <div style={{ marginTop: '10px', fontSize: '14px', color: '#666' }}>화면을 변경하지 마세요.</div>
+      </div>
     </ErrorBoundary>
   </StrictMode>,
 )

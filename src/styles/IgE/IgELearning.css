@@ -1,11 +1,13 @@
 .ige-learning-wrapper {
   width: 100%;
+  min-height: 100vh; /* 한 화면을 가득 채움 */
   background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   font-family: "Pretendard", sans-serif;
   box-sizing: border-box;
+  padding-bottom: 80px; /* 하단 여백 통일 */
 }
 
 .ige-learning-container {
@@ -20,15 +22,18 @@
   flex-direction: column;
   gap: 60px;
   padding: 80px 100px;
+  width: 100%;
+  max-width: 1200px; /* 넓게 펼치되 과도한 확장 방지 */
+  margin: 0 auto;
 }
 
-.learning-hero {
+.ige-learning-hero {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.section-label {
+.ige-section-label {
   font-size: 14px;
   font-weight: 700;
   color: #4C4CFF;
@@ -36,7 +41,7 @@
   letter-spacing: 0.1em;
 }
 
-.hero-heading {
+.ige-hero-heading {
   font-size: 42px;
   font-weight: 700;
   color: #111827;
@@ -45,18 +50,18 @@
   word-break: keep-all;
 }
 
-.highlight-text {
+.ige-highlight-text {
   color: #4C4CFF;
 }
 
-.learning-grid {
+.ige-learning-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
   align-items: stretch; /* 카드 높이 맞춤 */
 }
 
-.learning-card {
+.ige-learning-card {
   background: #f8fafc;
   padding: 36px;
   border-radius: 20px;
@@ -69,13 +74,13 @@
   height: auto; 
 }
 
-.learning-card:hover {
+.ige-learning-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   border-color: #cbd5e1;
 }
 
-.learning-card.full-width {
+.ige-learning-card.full-width {
   grid-column: span 2;
   background: #fff;
   border: 2px solid #4C4CFF;
@@ -84,7 +89,7 @@
 }
 
 /* 장식용 배경 요소 추가 */
-.learning-card.full-width::before {
+.ige-learning-card.full-width::before {
   content: '';
   position: absolute;
   top: 0;
@@ -95,14 +100,14 @@
   pointer-events: none;
 }
 
-.card-header {
+.ige-card-header {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 8px;
 }
 
-.card-icon {
+.ige-card-icon {
   width: 36px;
   height: 36px;
   background-color: #4C4CFF;
@@ -116,7 +121,7 @@
   flex-shrink: 0;
 }
 
-.card-title {
+.ige-card-title {
   font-size: 20px;
   font-weight: 700;
   color: #111827;
@@ -124,7 +129,7 @@
   letter-spacing: -0.02em;
 }
 
-.card-desc {
+.ige-card-desc {
   font-size: 16px;
   line-height: 1.7;
   color: #4b5563;
@@ -132,7 +137,7 @@
   word-break: keep-all; /* 한글 단어 잘림 방지 */
 }
 
-.lesson-list {
+.ige-lesson-list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -141,7 +146,7 @@
   gap: 12px;
 }
 
-.lesson-item {
+.ige-lesson-item {
   display: flex;
   align-items: flex-start;
   gap: 12px;
@@ -153,7 +158,7 @@
   border-radius: 12px;
 }
 
-.check-icon {
+.ige-check-icon {
   color: #4C4CFF;
   font-weight: bold;
   margin-top: 2px;
@@ -168,22 +173,23 @@
   .ige-learning-content {
     padding: 60px 24px;
     gap: 40px;
+    max-width: 1100px;
   }
   
-  .hero-heading {
+  .ige-hero-heading {
     font-size: 32px;
   }
 
-  .learning-grid {
+  .ige-learning-grid {
     grid-template-columns: 1fr;
     gap: 24px;
   }
 
-  .learning-card.full-width {
+  .ige-learning-card.full-width {
     grid-column: span 1;
   }
   
-  .learning-card {
+  .ige-learning-card {
     padding: 24px;
   }
 }
@@ -192,30 +198,31 @@
   .ige-learning-content {
     padding: 40px 16px;
     gap: 30px;
+    max-width: 100%;
   }
 
-  .hero-heading {
+  .ige-hero-heading {
     font-size: clamp(24px, 7vw, 42px);
   }
 
-  .learning-grid {
+  .ige-learning-grid {
     gap: 20px;
   }
 
-  .learning-card {
+  .ige-learning-card {
     padding: 20px;
     gap: 16px;
   }
 
-  .card-title {
+  .ige-card-title {
     font-size: 18px;
   }
 
-  .card-desc {
+  .ige-card-desc {
     font-size: 14px;
   }
 
-  .lesson-item {
+  .ige-lesson-item {
     font-size: 14px;
     padding: 10px 14px;
   }

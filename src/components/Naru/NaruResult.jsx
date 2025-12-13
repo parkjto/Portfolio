@@ -81,38 +81,7 @@ const NaruResult = () => {
             </div>
           </section>
 
-          {/* Design/Future Section */}
-          <section className="naru-result-section" style={{ marginBottom: 0 }}>
-            <div className="naru-section-header">
-              <div className="naru-design-header-sub">NEXT STEP</div>
-              <h2 className="naru-section-title-sm">Future Plans</h2>
-              <p className="naru-design-desc">
-                서비스 고도화를 위한 향후 개발 및 확장 계획입니다.
-              </p>
-            </div>
-
-            {/* Future Plans as a List or Cards (Reusing styles or simple list) */}
-            <div className="naru-learning-grid">
-                <div className="naru-learning-card">
-                    <h4 className="naru-learning-title">AI 고도화</h4>
-                    <p className="naru-learning-desc">
-                        사용자 리뷰 텍스트 분석을 통한 감성 분석 및 더욱 정교한 개인화 추천 알고리즘 적용
-                    </p>
-                </div>
-                <div className="naru-learning-card">
-                    <h4 className="naru-learning-title">수익 모델 구축</h4>
-                    <p className="naru-learning-desc">
-                        지역 소상공인과 연계한 타겟 광고 시스템 및 예약 수수료 모델 기획
-                    </p>
-                </div>
-                <div className="naru-learning-card">
-                    <h4 className="naru-learning-title">커뮤니티 확장</h4>
-                    <p className="naru-learning-desc">
-                        신뢰할 수 있는 리뷰어 뱃지 시스템 도입 및 유저 간 소통 기능 강화
-                    </p>
-                </div>
-            </div>
-          </section>
+          {/* Design/Future Section 제거 (내용 삭제) */}
 
         </main>
       </div>

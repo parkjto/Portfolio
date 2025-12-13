@@ -11,11 +11,11 @@ import webMainImg from '../../assets/image/MyBiz/MyBizWebMain.png';
 import webReviewImg from '../../assets/image/MyBiz/MyBizWebReviewAnalyze.png';
 import webSalesImg from '../../assets/image/MyBiz/MyBizWebSalesAnalyze.png';
 
-const designImages = [
-  { id: 1, src: webMainImg, label: 'Web Main Dashboard' },
-  { id: 2, src: webReviewImg, label: 'Review Analysis UI' },
-  { id: 3, src: webSalesImg, label: 'Sales Analysis UI' },
-];
+  const designImages = [
+    { id: 1, src: webMainImg, label: 'Web Main Dashboard' },
+    { id: 2, src: webReviewImg, label: 'Review Analysis UI' },
+    { id: 3, src: webSalesImg, label: 'Sales Analysis UI' },
+  ];
 
 const MyBizResult = () => {
   const { currentIndex, goNext, goPrev, goToIndex } = useSlider(designImages.length);
@@ -110,27 +110,27 @@ const MyBizResult = () => {
               </button>
               
               {currentImage && (
-                <div className="slider-content">
-                  <img 
+              <div className="slider-content">
+                <img 
                     src={currentImage.src} 
                     alt={currentImage.label} 
-                    className="slider-image"
-                  />
-                  
-                  {/* 캡션과 전체화면 버튼을 포함하는 하단 바 */}
-                  <div className="slider-bottom-bar">
-                    <div className="slider-caption">
+                  className="slider-image"
+                />
+                
+                {/* 캡션과 전체화면 버튼을 포함하는 하단 바 */}
+                <div className="slider-bottom-bar">
+                  <div className="slider-caption">
                       {currentImage.label} ({currentIndex + 1}/{designImages.length})
-                    </div>
+                  </div>
                     <button 
                       className="fullscreen-btn" 
                       onClick={toggleFullScreen} 
                       aria-label="View Fullscreen"
                     >
-                      <img src={fullscreenIcon} alt="" />
-                    </button>
-                  </div>
+                    <img src={fullscreenIcon} alt="" />
+                  </button>
                 </div>
+              </div>
               )}
 
               <button className="slider-btn next" onClick={goNext} aria-label="Next image">
@@ -149,11 +149,11 @@ const MyBizResult = () => {
                   <h4 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '10px', color: '#333' }}>
                     {img.label}
                   </h4>
-                  <img 
+                   <img 
                     src={img.src} 
                     alt={img.label} 
                     style={{ width: '100%', height: 'auto', borderRadius: '8px', border: '1px solid #eee' }} 
-                  />
+                   />
                 </div>
               ))}
             </div>

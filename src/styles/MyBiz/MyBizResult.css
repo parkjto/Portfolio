@@ -63,10 +63,11 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 0 80px;
-  margin-top: 80px; /* Aligned with sidebar top padding relative to content */
+  padding: 60px 72px; /* 화면을 넓게 사용 */
+  margin-top: 40px;  /* 상단 여백 축소 */
   margin-bottom: 80px;
-  max-width: 916px; /* From Figma Container width */
+  max-width: 1240px; /* 충분히 넓게 */
+  width: 100%;
 }
 
 /* Section Common */
