@@ -41,7 +41,7 @@ export const Closing = () => {
 
         {/* Copyright */}
         <div className="closing-copyright">
-          <p>© 2025 박준엽. Product Designer Portfolio.</p>
+          <p>© 2025 박준엽. Portfolio Website.</p>
         </div>
       </div>
     </section>
