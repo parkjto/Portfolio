@@ -4,7 +4,7 @@ import '../styles/PortfolioHero.css'
 const heroContent = {
   badge: 'Portfolio',
   title: (
-    <>디자인 감각을 코드로 증명하는 개발자 박준엽</>
+    <>회계의 흐름을 이해하는 개발자 박준엽</>
   ),
 }
 

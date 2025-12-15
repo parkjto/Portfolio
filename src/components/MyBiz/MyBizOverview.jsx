@@ -59,8 +59,8 @@ const MyBizOverview = () => {
               <div className="mybiz-info-item">
                 <span className="mybiz-info-label">TOOLS</span>
                 <div className="mybiz-info-content">
-                  <span className="mybiz-info-primary">Node.js, Figma</span>
-                  <span className="mybiz-info-secondary">Flutter, SupaBase</span>
+                  <span className="mybiz-info-primary">Flutter, React (Web), Node.js</span>
+                  <span className="mybiz-info-secondary">Supabase, Figma</span>
                 </div>
               </div>
               <div className="mybiz-info-item">
@@ -89,16 +89,16 @@ const MyBizOverview = () => {
                 <h3 className="mybiz-block-title">My Contributions</h3>
                 <div className="mybiz-contributions-list">
                   <div className="mybiz-contribution-item">
-                    <h4 className="mybiz-contrib-title">문제 정의</h4>
-                    <p className="mybiz-contrib-desc">소상공인의 '시간, 비용, 전문성' 부족문제</p>
+                    <h4 className="mybiz-contrib-title">FE 아키텍처 설계</h4>
+                    <p className="mybiz-contrib-desc">Flutter/Web 클라이언트 상태 관리 및 구조 설계</p>
                   </div>
                   <div className="mybiz-contribution-item">
-                    <h4 className="mybiz-contrib-title">AI 기반 UX 설계</h4>
-                    <p className="mybiz-contrib-desc">진입장벽을 낮춘 User Flow와 ChatGPT Chat</p>
+                    <h4 className="mybiz-contrib-title">API 연동 최적화</h4>
+                    <p className="mybiz-contrib-desc">서버/AI 통신 성능 개선 및 데이터 캐싱 전략 수립</p>
                   </div>
                   <div className="mybiz-contribution-item">
                     <h4 className="mybiz-contrib-title">데이터 시각화 UI</h4>
-                    <p className="mybiz-contrib-desc">직관적인 매출/리뷰 데이터 시각화 대시보드</p>
+                    <p className="mybiz-contrib-desc">Chart.js를 활용한 직관적인 매출/리뷰 대시보드 구현</p>
                   </div>
                 </div>
               </div>

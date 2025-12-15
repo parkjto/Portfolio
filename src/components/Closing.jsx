@@ -14,8 +14,8 @@ export const Closing = () => {
 
         {/* Text Content */}
         <div className="closing-text">
-          <p>문제를 깊이 공감하고, 논리적으로 설계하며,</p>
-          <p>코드로 직접 증명하는 박준엽입니다.</p>
+          <p>사용자의 문제를 기술로 해결하고,</p>
+          <p>비즈니스 가치를 창출하는 Frontend Developer 박준엽입니다.</p>
           <p>감사합니다.</p>
         </div>
 

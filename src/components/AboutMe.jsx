@@ -28,7 +28,7 @@ export const AboutMe = () => {
             </div>
           </div>
           <div className="header-row">
-            <div className="intro-text">안녕하세요, 디자인의 디테일을 아는 개발자 박준엽입니다.</div>
+            <div className="intro-text">안녕하세요, 회계의 흐름을 이해하고 복잡함을 덜어내는 개발자 박준엽입니다.</div>
           </div>
         </div>
 
@@ -37,9 +37,13 @@ export const AboutMe = () => {
             <div className="info-block">
               <h3 className="Aboutme-section-title">Careers</h3>
               <div className="block-content">
-                <p className="body-text">
-                  - 2019 ~ 2021 농협경제지주 주식회사 (주임 회계 매입매출 월,연 마감)
-                </p>
+                <div className="body-text">
+                  <strong>2019.12 - 2021.12 농협경제지주 (회계팀 주임)</strong>
+                  <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px', listStyleType: 'disc' }}>
+                    <li>매입/매출 전표 마감 및 결산 데이터 무결성 검증 수행</li>
+                    <li>세무 신고를 위한 기초 데이터 관리 및 정산 프로세스 실무 경험</li>
+                  </ul>
+                </div>
               </div>
             </div>
             <div className="info-block">
@@ -77,9 +81,10 @@ export const AboutMe = () => {
                 <div className="skill-category">
                   <h4 className="skill-category-title">Programming Language</h4>
                   <div className="skill-tags">
-                    <span className="body-text">Flutter</span>
-                    <span className="body-text">React</span>
                     <span className="body-text">JavaScript</span>
+                    <span className="body-text">React</span>
+                    <span className="body-text">TypeScript</span>
+                    <span className="body-text">Flutter</span>
                     <span className="body-text">Python</span>
                   </div>
                 </div>

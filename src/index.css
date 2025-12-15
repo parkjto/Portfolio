@@ -22,14 +22,16 @@
 body {
   margin: 0;
   min-height: 100vh;
+  min-width: 1280px; /* PC 레이아웃 강제 유지 */
   background: #ffffff;
   color: #0f172a;
-  overflow-x: hidden; /* 가로 스크롤 방지 */
+  overflow-x: auto; /* 필요한 경우 가로 스크롤 허용 */
 }
 
 #root {
   width: 100%;
-  overflow-x: hidden; /* 가로 스크롤 방지 */
+  min-width: 1280px; /* PC 레이아웃 강제 유지 */
+  overflow-x: hidden;
 }
 
 /* 기본 반응형 유틸리티 */

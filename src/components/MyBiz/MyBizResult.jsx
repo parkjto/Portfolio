@@ -12,9 +12,9 @@ import webReviewImg from '../../assets/image/MyBiz/MyBizWebReviewAnalyze.png';
 import webSalesImg from '../../assets/image/MyBiz/MyBizWebSalesAnalyze.png';
 
   const designImages = [
-    { id: 1, src: webMainImg, label: 'Web Main Dashboard' },
-    { id: 2, src: webReviewImg, label: 'Review Analysis UI' },
-    { id: 3, src: webSalesImg, label: 'Sales Analysis UI' },
+    { id: 1, src: webMainImg, label: 'Web Main Dashboard (Data Visualization)' },
+    { id: 2, src: webReviewImg, label: 'Review Analysis UI (Chart.js Custom)' },
+    { id: 3, src: webSalesImg, label: 'Sales Analysis UI (Complex Data Grid)' },
   ];
 
 const MyBizResult = () => {
@@ -96,11 +96,11 @@ const MyBizResult = () => {
           {/* Design Section */}
           <section className="result-section" style={{ marginBottom: 0 }}>
             <div className="section-header">
-              <div className="design-header-sub">NEXT STEP</div>
-              <h2 className="section-title-sm">Design Exploration</h2>
+              <div className="design-header-sub">Web Admin Expansion</div>
+              <h2 className="section-title-sm">PC Dashboard Development</h2>
               <p className="design-desc">
-                디자인 및 개발 능력 향상을 위한 Web UI 스터디 작업물{'\n'}
-                모바일 만으로는 PC 사용자의 니즈를 만족할 수 없을 것 같다라는 생각을 시작으로 web을 디자인과 제작해보았습니다.
+                모바일의 한계를 넘어, PC 환경에서 복잡한 매출 데이터를 심층 분석할 수 있는 반응형 대시보드를 구축했습니다.{'\n'}
+                Chart.js를 활용하여 매출 추이와 리뷰 데이터를 직관적으로 시각화하고, 사장님들이 데이터를 기반으로 의사결정을 내릴 수 있도록 UX를 설계했습니다.
               </p>
             </div>
 
