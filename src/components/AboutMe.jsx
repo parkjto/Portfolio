@@ -72,13 +72,6 @@ export const AboutMe = () => {
               <h3 className="Aboutme-section-title">Skill Tool</h3>
               <div className="skills-container">
                 <div className="skill-category">
-                  <h4 className="skill-category-title">Design</h4>
-                  <div className="skill-tags">
-                    <span className="body-text">Photoshop</span>
-                    <span className="body-text">Figma</span>
-                  </div>
-                </div>
-                <div className="skill-category">
                   <h4 className="skill-category-title">Programming Language</h4>
                   <div className="skill-tags">
                     <span className="body-text">JavaScript</span>
@@ -86,6 +79,13 @@ export const AboutMe = () => {
                     <span className="body-text">TypeScript</span>
                     <span className="body-text">Flutter</span>
                     <span className="body-text">Python</span>
+                  </div>
+                </div>
+                <div className="skill-category">
+                  <h4 className="skill-category-title">Design</h4>
+                  <div className="skill-tags">
+                    <span className="body-text">Photoshop</span>
+                    <span className="body-text">Figma</span>
                   </div>
                 </div>
                 <div className="skill-category">

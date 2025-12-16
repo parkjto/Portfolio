@@ -45,7 +45,7 @@ const MyBizOverview = () => {
               <div className="mybiz-info-item">
                 <span className="mybiz-info-label">ROLE</span>
                 <div className="mybiz-info-content">
-                  <span className="mybiz-info-primary">Project Reader&PD</span>
+                  <span className="mybiz-info-primary">Project Leader&PD</span>
                   <span className="mybiz-info-secondary">Backend</span>
                 </div>
               </div>
