@@ -21,10 +21,12 @@ import IgESolution from './components/IgE/IgESolution.jsx'
 import IgELearning from './components/IgE/IgELearning.jsx'
 import IgEFlowChart from './components/IgE/IgEFlowChart.jsx'
 import { Closing } from './components/Closing.jsx'
+import MobileOrientationAlert from './components/Common/MobileOrientationAlert.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ErrorBoundary>
+      <MobileOrientationAlert />
       <PortfolioHero />
       <AboutMe />
       <ProjectIndex />
